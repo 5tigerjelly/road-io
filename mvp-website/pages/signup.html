@@ -24,6 +24,7 @@
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="../js/aws-cognito-sdk.min.js"></script>
     <script src="../js/amazon-cognito-identity.min.js"></script>
+    <script src="../js/aws-sdk.min.js"></script>
     <script src="../js/signup.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -115,19 +116,6 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-    <script>
-    document.getElementById("check_corporate").onchange = function() {showhidden()};
-
-    function showhidden() {
-        var check_box = document.getElementById("check_corporate").checked;
-        var lower_box = document.getElementById("corporate_account")
-        if(check_box){
-          lower_box.style.display = 'block';
-        }else{
-          lower_box.style.display = 'none';
-        }
-    }
-    </script>
 </body>
 
 </html>
