@@ -1,3 +1,5 @@
+//https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html
+
 var isEntity = false;
 
 window.onload = function() {
@@ -27,8 +29,8 @@ function signup(){
     var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 
     var poolData = {
-        UserPoolId : 'us-west-2_dEcrjTcVl', // Your user pool id here
-        ClientId : '2kkhe3k563aocuioe4sklhokg4' // Your client id here
+        UserPoolId : 'us-west-2_dEcrjTcVl',
+        ClientId : '2kkhe3k563aocuioe4sklhokg4'
     };
     var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
 
