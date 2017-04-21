@@ -121,7 +121,6 @@ function signup(){
             alert(err);
             return;
         }
-        console.log("sign up done");
-        console.log(result);
+        window.location.replace("login.html")
     });
 };
