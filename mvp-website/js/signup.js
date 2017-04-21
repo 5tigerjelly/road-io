@@ -5,6 +5,7 @@ var isEntity = false;
 window.onload = function() {
   document.getElementById("submit_signup").onclick = function() {signup()};
   document.getElementById("check_corporate").onchange = function() {showhidden()};
+  document.getElementById("password").onchange = function() {checkPassword()};
 };
 
 function showhidden() {
@@ -19,10 +20,10 @@ function showhidden() {
     }
 };
 
-// TODO : remove later
-function test(){
-  console.log(typeof(document.getElementById("naicsCode").value));
-};
+function checkPassword(){
+    var password = document.getElementById("password").value;
+    
+}
 
 function signup(){
     // When using loose Javascript files:

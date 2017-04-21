@@ -5,7 +5,7 @@ window.onload = function() {
 };
 
 function test(){
-  console.log("working");
+  console.log(document.getElementById("email").value);
 };
 
 function login(){
@@ -30,6 +30,7 @@ function login(){
   var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
   cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: function (result) {
+          window.location.replace("dashboard.html")
           var decoded = jwt_decode(result.getAccessToken().getJwtToken());
           console.log(decoded);
           console.log('access token + ' + result.getAccessToken().getJwtToken());
