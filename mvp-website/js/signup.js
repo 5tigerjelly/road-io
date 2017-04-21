@@ -5,7 +5,6 @@ var isEntity = false;
 window.onload = function() {
   document.getElementById("submit_signup").onclick = function() {signup()};
   document.getElementById("check_corporate").onchange = function() {showhidden()};
-  document.getElementById("password").onchange = function() {checkPassword()};
 };
 
 function showhidden() {
@@ -22,7 +21,6 @@ function showhidden() {
 
 function checkPassword(){
     var password = document.getElementById("password").value;
-    
 }
 
 function signup(){
@@ -122,6 +120,6 @@ function signup(){
             alert(err);
             return;
         }
-        window.location.replace("login.html")
+        window.location.replace("dashboard.html")
     });
 };
