@@ -115,11 +115,21 @@ function signup(){
     attributeList.push(attributeCountry);
     attributeList.push(attributeCustomerType);
 
-    userPool.signUp(email, password, attributeList, null, function(err, result){
-        if (err) {
-            alert(err);
-            return;
-        }
+    if(isEntity){
+      userPool.signUp(email, password, attributeList, null, function(err, result){
+          if (err) {
+              alert(err);
+              return;
+          }
+          window.location.replace("customerDashboard.html")
+      });
+    }else{
+        userPool.signUp(email, password, attributeList, null, function(err, result){
+          if (err) {
+              alert(err);
+              return;
+          }
         window.location.replace("dashboard.html")
-    });
+      });
+    }
 };

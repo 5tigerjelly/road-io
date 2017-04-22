@@ -30,10 +30,25 @@ function login(){
   var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
   cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: function (result) {
-          window.location.replace("dashboard.html")
-          var decoded = jwt_decode(result.getAccessToken().getJwtToken());
-          console.log(decoded);
-          console.log('access token + ' + result.getAccessToken().getJwtToken());
+        cognitoUser.getUserAttributes(function(err, result) {
+          if (result[1].getValue() == 'driver') {
+            window.location.replace("dashboard.html")
+            var decoded = jwt_decode(result.getAccessToken().getJwtToken());
+            console.log(decoded);
+            console.log('access token + ' + result.getAccessToken().getJwtToken());
+          } else {
+            window.location.replace("customerDashboard.html")
+          }
+          // if (err) {
+          //   alert(err);
+          //   return;
+          // }
+          // for (i = 0; i < result.length; i++) {
+          //   console.log('attribute Number' + i + ", with Name: " + result[i].getName() + ' has value ' + result[i].getValue());
+          // }
+        });
+
+
 
           // AWS.config.credentials = new AWS.CognitoIdentityCredentials({
           //     IdentityPoolId : '...', // your identity pool id here
