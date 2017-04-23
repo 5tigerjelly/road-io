@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Road.io</title>
+    <title>Road.io &mdash; Driver Portal</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,13 +50,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Road.io</a>
+                <a class="navbar-brand" href="index.html" id="brand">Road.io</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                        <p id="spacingNavLinks">Your Dashboard</p>
+                        <p id="spacingNavLinks"><a href="dashboard.html" class="NavLinksActions">Your Dashboard</a></p>
                         <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
@@ -106,7 +106,7 @@
                         </ul> -->
                     </li>
                     <li class="dropdown">
-                        <p id="spacingNavLinks">Upload Videos</p>
+                        <p id="spacingNavLinks"><a href="upload.html" class="NavLinksActions">Upload Videos</a></p>
                         <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
@@ -156,7 +156,7 @@
                     </ul> -->
                 </li>
                 <li class="dropdown">
-                    <p id="spacingNavLinks">Manage Videos</p>
+                    <p id="spacingNavLinks"><a href="#" class="NavLinksActions">Manage Videos</a></p>
                     <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
@@ -206,7 +206,7 @@
                     </ul> -->
                 </li>
                 <li class="dropdown">
-                    <p id="spacingNavLinks">Tag Videos</p>
+                    <p id="spacingNavLinks"><a href="#" class="NavLinksActions">Tag Videos</a></p>
 <!--                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
@@ -344,10 +344,10 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw" id="account"></i> <i class="fa fa-caret-down" id=caretDown></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#"><i class="fa fa-id-card-o"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -482,12 +482,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <b>
                                 <div class="panel-footer">
                                     <span class="pull-left"></span>
                                     <div class="clearfix">Total Amount Made</div>
                                 </div>
-                            </a>
+                            </b>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -502,12 +502,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <b>
                                 <div class="panel-footer">
                                     <span class="pull-left"></span>
                                     <div class="clearfix">Number of Hours Uploaded</div>
                                 </div>
-                            </a>
+                            </b>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -522,12 +522,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <b>
                                 <div class="panel-footer">
                                     <span class="pull-left"></span>
                                     <div class="clearfix">Longest Streak</div>
                                 </div>
-                            </a>
+                            </b>
                         </div>
                     </div>
                 </div>
