@@ -8,6 +8,10 @@ http://www.bootstrapzero.com
 @import url(https://fonts.googleapis.com/css?family=Questrial);
 @import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
 
+#auto {
+    margin-right: 0.5em;
+    font-size: 1.3em;
+}
 .threeColPics {
     font-size: 3em !important;
     width: 100px;
