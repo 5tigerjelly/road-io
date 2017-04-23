@@ -5,6 +5,7 @@
  */
 #spacingNavLinks {
   margin-right: 90px;
+  font-size: 1.2em;
 }
 #account {
 	font-size: 1.8em;
@@ -12,12 +13,21 @@
 #caretDown {
 	font-size: 1.8em;
 }
+#cart {
+	padding-top: 10px;
+	font-size: 2em;
+	margin-right: 80px;
+}
 #brand{
-	margin-top: 5px;
+	margin-top: 4.5px;
 }
 .NavLinksActions {
 	text-decoration: none !important;
 }
 #iconsInMenu {
 	margin-right: 6px;
+}
+#companyName {
+	text-align: center;
+	font-size: 20px;
 }
