@@ -24,3 +24,6 @@
 .NavLinksActions {
 	text-decoration: none !important;
 }
+#iconsInMenu {
+	margin-right: 6px;
+}
