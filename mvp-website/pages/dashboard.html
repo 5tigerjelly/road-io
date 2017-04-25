@@ -69,7 +69,7 @@
                         <i class="fa fa-user fa-fw" id="account"></i> <i class="fa fa-caret-down" id=caretDown></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-id-card-o" id="iconsInMenu"></i> User Profile</a>
+                        <li><a href="#"><i class="fa fa-id-card-o" id="iconsInMenu"></i><span id="userProfileLink">User Profile</span></a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw" id="iconsInMenu"></i>Account Settings</a>
                         </li>
@@ -182,9 +182,16 @@
     <script src="../vendor/morrisjs/morris.min.js"></script>
     <script src="../data/morris-data.js"></script>
 
+    <!-- AWS --!>
+    <script src="../js/aws-cognito-sdk.min.js"></script>
+    <script src="../js/amazon-cognito-identity.min.js"></script>
+    <script src="../js/jwt-decode.min.js"></script>
+    <script src="../js/aws-sdk.min.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
+    <script src="../js/dashboard.js"></script>
 </body>
 
 </html>

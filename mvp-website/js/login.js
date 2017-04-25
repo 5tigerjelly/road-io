@@ -30,8 +30,10 @@ function login(){
   var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
   cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: function (result) {
-        cognitoUser.getUserAttributes(function(err, result) {
-          if (result[1].getValue() == 'driver') {
+        cognitoUser.getUserAttributes(function(err,attr) {
+            console.log(result);
+
+          if (attr[1].getValue() == 'driver') {
             window.location.replace("dashboard.html")
             var decoded = jwt_decode(result.getAccessToken().getJwtToken());
             console.log(decoded);
