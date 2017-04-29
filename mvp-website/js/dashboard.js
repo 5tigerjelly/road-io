@@ -1,6 +1,8 @@
 var idToken = "";
 var email = "";
 var prefUserName = "";
+var identityID = "";
+var sub = "";
 
 $(function() {
    checkSession();
@@ -29,8 +31,49 @@ function checkSession(){
             alert(err);
             return;
         }
+        console.log(result);
         prefUserName = result[4].getValue();
+        sub = result[0].getValue();
+        console.log(sub);
         $("#userProfileLink").html(prefUserName + "'s profile");
+AWS.config.update({
+  credentials: new AWS.CognitoIdentityCredentials({
+    IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01'
+  }),
+  region: 'us-west-2'
+});
+			AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+				IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01',
+				Logins: {
+					'cognito-idp.us-west-2.amazonaws.com/us-west-2_dEcrjTcVl': session.getIdToken().getJwtToken()
+				}
+			});
+    AWS.config.credentials.refresh((error) => {
+        if (error) {
+            console.error(error);
+        } else {
+            console.log('Successfully logged!');
+            idenittyID = AWS.config.credentials.identityId;
+        }
+        });
+AWS.config.credentials.get(function(){
+
+    var accessKeyId = AWS.config.credentials.accessKeyId;
+    var secretAccessKey = AWS.config.credentials.secretAccessKey;
+    var sessionToken = AWS.config.credentials.sessionToken;
+    console.log(accessKeyId);
+    console.log(secretAccessKey);
+
+});
+
+        var s3 = new AWS.S3({
+  apiVersion: '2006-03-01',
+  params: {Bucket: 'driver-videos'}});
+  var prefix = encodeURIComponent('InfoCapstone2017.mp4');
+  s3.getObject({Bucket: 'driver-videos/us-west-2:8355b030-71cf-4a95-8ab2-d7a9ae9f5abe', Key: prefix}, function(err, data) { if(err) { console.log(err); } else { console.log(data);} });
+//s3.listObjects({Delimiter: '/'}, function(err, data) {
+//    if(err) { console.log(err); } else { console.log(data); } 
+//});
       });
       $.ajax({
          url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?type=total",
