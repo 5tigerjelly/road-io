@@ -7,12 +7,12 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     id: 'mapbox.streets'
 }).addTo(mymap);
 
-// mymap.dragging.disable();
-// mymap.touchZoom.disable();
-// mymap.doubleClickZoom.disable();
-// mymap.scrollWheelZoom.disable();
-// mymap.boxZoom.disable();
-// mymap.keyboard.disable();
+mymap.dragging.disable();
+mymap.touchZoom.disable();
+mymap.doubleClickZoom.disable();
+mymap.scrollWheelZoom.disable();
+mymap.boxZoom.disable();
+mymap.keyboard.disable();
 
 window.onload = function() {
   generateCirclesEurasia();
