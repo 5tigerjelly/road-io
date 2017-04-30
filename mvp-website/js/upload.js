@@ -7,7 +7,6 @@ var sub = "";
 
 $(function() {
    checkSession();
-   start();
 });
 
 function checkSession(){
@@ -55,6 +54,7 @@ AWS.config.update({
         } else {
             console.log('Successfully logged!');
             identityID = AWS.config.credentials.identityId;
+            start();
         }
         });
 AWS.config.credentials.get(function(){
@@ -80,9 +80,10 @@ function upload(file) {
         var s3 = new AWS.S3({
   apiVersion: '2006-03-01',
   params: {Bucket: 'driver-videos'}});
+    
   var filename = file.name;
   var prefix = encodeURIComponent(filename);
-  console.log(prefix);
+  console.log(identityID);
   s3.putObject({Bucket: 'driver-videos/' + identityID, Key: prefix, Body: file}, function(err, data) { if(err) { console.log(err); } else { console.log(data);} });
 
  

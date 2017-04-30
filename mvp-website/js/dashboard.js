@@ -56,7 +56,7 @@ AWS.config.update({
             idenittyID = AWS.config.credentials.identityId;
         }
         });
-AWS.config.credentials.get(function(){
+/*AWS.config.credentials.get(function(){
 
     var accessKeyId = AWS.config.credentials.accessKeyId;
     var secretAccessKey = AWS.config.credentials.secretAccessKey;
@@ -64,16 +64,20 @@ AWS.config.credentials.get(function(){
     console.log(accessKeyId);
     console.log(secretAccessKey);
 
-});
+});*/
 
-        var s3 = new AWS.S3({
-  apiVersion: '2006-03-01',
-  params: {Bucket: 'driver-videos'}});
-  var prefix = encodeURIComponent('InfoCapstone2017.mp4');
-  s3.getObject({Bucket: 'driver-videos/us-west-2:8355b030-71cf-4a95-8ab2-d7a9ae9f5abe', Key: prefix}, function(err, data) { if(err) { console.log(err); } else { console.log(data);} });
+//        var s3 = new AWS.S3({
+//  apiVersion: '2006-03-01',
+//  params: {Bucket: 'driver-videos'}});
+//  var prefix = encodeURIComponent('InfoCapstone2017.mp4');
+//  s3.getObject({Bucket: 'driver-videos/us-west-2:8355b030-71cf-4a95-8ab2-d7a9ae9f5abe', Key: prefix}, function(err, data) { if(err) { console.log(err); } else { console.log(data);} });
 //s3.listObjects({Delimiter: '/'}, function(err, data) {
 //    if(err) { console.log(err); } else { console.log(data); } 
 //});
+      });
+      $('#signout').click(function(){
+        cognitoUser.signOut();
+        window.location.replace("login.html");
       });
       $.ajax({
          url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?type=total",
@@ -103,7 +107,8 @@ AWS.config.credentials.get(function(){
          success: function(result) { populateChart(result.payments); }
       });
 
-      
+ //   cognitoUser.signOut();
+       
     });
   }
   else {
