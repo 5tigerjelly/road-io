@@ -36,11 +36,11 @@
 $(window).load(function () {
     //normally you'd wait for document.ready, but you'd likely to want to wait
     //for images to load in case they reflow the page
-    $('body').delay(65000) //wait 67 seconds
+    $('body').delay(65000) //wait 65000 milliseconds
         .animate({
             //animate jQuery's custom "scrollTop" style
             //grab the value as the offset of #second from the top of the page
-            'scrollTop': $('#three').offset().top
+            'scrollTop': $('.carousel-inner').offset().top
         }, 500); //animate over 300ms, change this to however long you want it to animate for
     $(".threeColPics").fadeIn("fast");
 });

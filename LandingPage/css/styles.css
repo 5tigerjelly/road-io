@@ -8,6 +8,21 @@ http://www.bootstrapzero.com
 @import url(https://fonts.googleapis.com/css?family=Questrial);
 @import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
 
+.carousel-inner {
+    margin-bottom: 1em !important
+}
+
+#right, #left {
+    padding-top: 14em !important
+}
+
+#first {
+    margin-bottom: -7.2em !important;
+}
+
+#three {
+
+}
 
 #mapid { height: 180px; zoom: -3;}
 
@@ -25,8 +40,10 @@ http://www.bootstrapzero.com
     fill: #14779C;
 }
 
-#CONTAINMENT {
-    padding-top: 5em !important;
+#features {
+    margin-top: -2em;
+    font-size: 5em;
+    font-weight: bold;
 }
 
 html,
