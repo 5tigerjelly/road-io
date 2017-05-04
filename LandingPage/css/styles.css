@@ -8,6 +8,21 @@ http://www.bootstrapzero.com
 @import url(https://fonts.googleapis.com/css?family=Questrial);
 @import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
 
+#MapMission {
+    margin-top: -8em !important;
+}
+
+#missionStatement, #hoursStatement {
+    text-align: center !important;
+}
+
+#missionContainer {
+    margin-top: -5em;
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .carousel-inner {
     margin-bottom: 1em !important
 }

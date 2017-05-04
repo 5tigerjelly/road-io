@@ -98,14 +98,14 @@ function generateCirclesIndia() {
 //     fillOpacity: 0.5
 // }).addTo(mymap);
 
-var popup = L.popup();
+// var popup = L.popup();
 
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-}
+// function onMapClick(e) {
+//     popup
+//         .setLatLng(e.latlng)
+//         .setContent("You clicked the map at " + e.latlng.toString())
+//         .openOn(mymap);
+// }
 
-mymap.on('click', onMapClick);
+// mymap.on('click', onMapClick);
 
