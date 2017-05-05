@@ -8,6 +8,59 @@ http://www.bootstrapzero.com
 @import url(https://fonts.googleapis.com/css?family=Questrial);
 @import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
 
+#contactText{
+    color: #333;
+}
+
+#last {
+    background-color: #14779C;
+}
+
+#firstPic {
+
+}
+
+#firstText {
+
+}
+
+#MapMission {
+    margin-top: -8em !important;
+}
+
+#missionStatement, #hoursStatement {
+    text-align: center !important;
+}
+
+#missionContainer {
+    margin-top: -5em;
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-inner {
+    margin-bottom: 1em !important
+}
+
+#right, #left {
+    padding-top: 16em !important
+}
+
+#first {
+    margin-bottom: -7.2em !important;
+}
+
+#three {
+
+}
+
+#mapid { height: 180px; zoom: -3;}
+
+.navbar-header > .navbar-brand:hover, .navbar-header > .navbar-brand:focus {
+    color: #14779C;
+}
+
 #auto {
     margin-right: 0.5em;
     font-size: 1.3em;
@@ -15,11 +68,13 @@ http://www.bootstrapzero.com
 .threeColPics {
     font-size: 3em !important;
     width: 100px;
-    fill: #d3d3d3;
+    fill: #14779C;
 }
 
-#CONTAINMENT {
-    padding-top: 10em !important;
+#features {
+    margin-top: -2em;
+    font-size: 5em;
+    font-weight: bold;
 }
 
 html,
@@ -30,8 +85,8 @@ body {
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #282828;
-    color: #d3d3d3;
+    background-color: #FFFFFF;
+    color: #666666;
     webkit-tap-highlight-color: #222;
 }
 
@@ -48,7 +103,7 @@ hr.light {
 }
 
 a {
-    color: #9c27b0;
+    color: #14779C;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -102,7 +157,7 @@ p {
 }
 
 .text-primary {
-    color: #9c27b0;
+    color: #14779C;
 }
 
 .modal-content {
@@ -121,8 +176,9 @@ footer {
     padding: 15px;
 }
 
+
 .no-padding {
-    padding: 0;
+    padding-bottom: 12em !important;
 }
 
 .navbar-default {
@@ -136,7 +192,7 @@ footer {
 
 .navbar-header > .navbar-brand {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    color: #9c27b0;
+    color: #14779C;
     padding: 15px;
     -webkit-transition: padding .2s ease-in;
     -moz-transition: padding .2s ease-in;
@@ -145,7 +201,7 @@ footer {
 
 .navbar-header > .navbar-brand:hover,
 .navbar-header > .navbar-brand:focus {
-    color: #8b27b0;
+    color: white !important;
 }
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
@@ -165,12 +221,12 @@ footer {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #9c27b0;
+    color: #14779C;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #9c27b0 !important;
+    color: #14779C !important;
     background-color: transparent;
 }
 
@@ -218,7 +274,7 @@ footer {
 
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 15px;
-        color: #9c27b0;
+        color: #14779C;
         padding: 20px;
         letter-spacing: 1px;
     }
@@ -236,7 +292,7 @@ footer {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #9c27b0;
+        color: #14779C;
     }
 }
 
