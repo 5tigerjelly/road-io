@@ -38,78 +38,56 @@
 </head>
 
 <body>
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html" id="brand">Road.io</a>
-            </div>
-            <!-- /.navbar-header -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html" id="brand">Road.io</a>
+        </div>
+        <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                        <p id="spacingNavLinks"><a href="dashboard.html" class="NavLinksActions">Your Dashboard</a></p>
-                </li>
-                <li class="dropdown">
-                    <p id="spacingNavLinks"><a href="upload.html" class="NavLinksActions">Upload Videos</a></p>
-                </li>
-                <li class="dropdown">
-                    <p id="spacingNavLinks"><a href="#" class="NavLinksActions">Manage Videos</a></p>
-                </li>
-                <li class="dropdown">
-                    <p id="spacingNavLinks"><a href="#" class="NavLinksActions">Tag Videos</a></p>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw" id="account"></i> <i class="fa fa-caret-down" id=caretDown></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-id-card-o" id="iconsInMenu"></i><span id="userProfileLink">User Profile</span></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw" id="iconsInMenu"></i>Account Settings</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-usd fa-fw" id="iconsInMenu"></i>Payment Settings</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-question-circle-o fa-fw" id="iconsInMenu"></i>Help &amp Support</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a id="signout" href="#"><i class="fa fa-sign-out fa-fw" id="iconsInMenu"></i> Logout</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div class="container">
-            <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Your Dashboard</h1>
-                    </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-paypal fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div id="totalAmount" class="huge"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <b>
-                            <div class="panel-footer">
-                                <span class="pull-left"></span>
-                                <div class="clearfix">Total Amount Made</div>
-                            </div>
-                        </b>
-                    </div>
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+                    <p id="spacingNavLinks"><a href="dashboard.html" class="NavLinksActions">Your Dashboard</a></p>
+            </li>
+            <li class="dropdown">
+                <p id="spacingNavLinks"><a href="upload.html" class="NavLinksActions">Upload Videos</a></p>
+            </li>
+            <li class="dropdown">
+                <p id="spacingNavLinks"><a href="manage.html" class="NavLinksActions">Manage Videos</a></p>
+            </li>
+            <li class="dropdown">
+                <p id="spacingNavLinks"><a href="#" class="NavLinksActions">Tag Videos</a></p>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw" id="account"></i> <i class="fa fa-caret-down" id=caretDown></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-id-card-o" id="iconsInMenu"></i><span id="userProfileLink">User Profile</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw" id="iconsInMenu"></i>Account Settings</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-usd fa-fw" id="iconsInMenu"></i>Payment Settings</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-question-circle-o fa-fw" id="iconsInMenu"></i>Help &amp Support</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="../../LandingPage/index.html"><i class="fa fa-sign-out fa-fw" id="iconsInMenu"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Your Dashboard</h1>
                 </div>
         </div>
     <div class="row">
@@ -208,10 +186,10 @@
     <!--<script src="../data/morris-data.js"></script>-->
 
     <!-- AWS --!>
-    <script src="../js/aws-sdk.min.js"></script>
     <script src="../js/aws-cognito-sdk.min.js"></script>
     <script src="../js/amazon-cognito-identity.min.js"></script>
     <script src="../js/jwt-decode.min.js"></script>
+    <script src="../js/aws-sdk.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
