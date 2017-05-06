@@ -52,7 +52,7 @@ AWS.config.update({
         if (error) {
             console.error(error);
         } else {
-            console.log('Successfully logged!');
+            console.log('Successfully logged!!');
             identityID = AWS.config.credentials.identityId;
             start();
         }
@@ -102,13 +102,12 @@ function start() {
         console.log(files);
         upload(files[0]);
     }
-
-    uploadForm.addEventListener('submit', function(e) {
+    $('button').click(function(e) {
+        console.log('here')
         var uploadFiles = document.getElementById('js-upload-files').files;
         e.preventDefault()
-
         startUpload(uploadFiles)
-    })
+    });
 
     /*dropZone.ondrop = function(e) {
         e.preventDefault();
