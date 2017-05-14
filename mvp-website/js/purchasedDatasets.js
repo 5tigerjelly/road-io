@@ -83,10 +83,7 @@ function getDatasets() {
       console.log(err, err.stack); // an error occurred
     }
     else {
-      // console.log(data);           // successful response
       var datasetObjects = data["Contents"];
-      console.log(datasetObjects);
-      console.log(datasetObjects.length);
       var counter = 1;
       datasetObjects.forEach(function(element) {
         var datasetName = element["Key"];
@@ -118,7 +115,6 @@ function getDatasets() {
       });
 
       $("#dataTables-example").DataTable();
-      //var datasetName = (data["Contents"]["0"]["Key"])
     }     
   });
 }

@@ -60,12 +60,10 @@ AWS.config.update({
   }
   else {
     window.location.replace("login.html");
- 
   }
 }
 
 function getDatasets() {
-  AWS.config.update({accessKeyId: 'AKIAJQP6BHUEEV2VAU5A', secretAccessKey: '+eGoo1rd/gLsWEkH/9zdlwC3TyPPotTUIkuj7XH2', region: 'us-west-2'});
   var s3 = new AWS.S3();
   var params = {
     Bucket: 'roadio-datasets',
@@ -108,15 +106,15 @@ function getDatasets() {
       });
 
       $("#datasetsTable").DataTable();
-      //var datasetName = (data["Contents"]["0"]["Key"])
     }     
   });
 }
 
 $('#datasetsTable').on('click', 'input[type="checkbox"]', function() {
-  if ($('.checkbox_check').is(':checked')){
+  if ($('.checkbox_check').is(':checked')) {
     $('#cartInsert').removeClass('disabled');
-  } else{
+  } else {
     $('#cartInsert').addClass('disabled');
   }
-});    
+});
+
