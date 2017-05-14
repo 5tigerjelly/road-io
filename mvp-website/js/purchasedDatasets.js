@@ -4,6 +4,13 @@ var prefUserName = "";
 var identityID = "";
 var sub = "";
 
+// // Load the SDK for JavaScript
+// $(document).ready(function() {
+//     $('#dataTables-example').DataTable({
+//         responsive: true
+//     });
+// });
+
 $(function() {
    checkSession();
    getDatasets();
@@ -87,9 +94,9 @@ function getDatasets() {
         
         var row = $("<tr></tr>");
         var tableID = $("<td></td>").text(counter);
-        // var aTag = $("<a></a>").text(datasetName);
-        // aTag.attr("href", "https://s3-us-west-2.amazonaws.com/roadio-datasets/" + datasetName);
-        var zip = $("<td></td>").html(datasetName);
+        var aTag = $("<a></a>").text(datasetName);
+        aTag.attr("href", "https://s3-us-west-2.amazonaws.com/roadio-datasets/" + datasetName);
+        var zip = $("<td></td>").html(aTag);
 
         var country = "";
         if (counter == 1) {
@@ -102,10 +109,9 @@ function getDatasets() {
           country = "Denmark";
         }
 
-        var countryOfOrigin = $("<td></td>").text(country);
         var dateCompiled = $("<td></td>").text(lastModified);
-        row.append(tableID, zip, countryOfOrigin, dateCompiled);
-        $('#AllDatasets').append(row);
+        row.append(tableID, zip, dateCompiled);
+        $('#myDatasets').append(row);
         counter += 1;
 
 
