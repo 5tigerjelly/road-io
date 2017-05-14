@@ -64,6 +64,7 @@ AWS.config.update({
 }
 
 function getDatasets() {
+  AWS.config.update({accessKeyId: 'AKIAIYWRLAEZKKEYEWSQ', secretAccessKey: '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', region: 'us-west-2'});
   var s3 = new AWS.S3();
   var params = {
     Bucket: 'roadio-datasets',
