@@ -98,7 +98,18 @@ function getDatasets() {
         aTag.attr("href", "https://s3-us-west-2.amazonaws.com/roadio-datasets/" + datasetName);
         var zip = $("<td></td>").html(aTag);
 
-        var countryOfOrigin = $("<td></td>").text("Austria");
+        var country = "";
+        if (counter == 1) {
+          country = "Austria";
+        } else if (counter == 2) {
+          country = "Belgium";
+        } else if (counter == 3) {
+          country = "China";
+        } else if (counter == 4) {
+          country = "Denmark";
+        }
+
+        var countryOfOrigin = $("<td></td>").text(country);
         var dateCompiled = $("<td></td>").text(lastModified);
         row.append(tableID, zip, countryOfOrigin, dateCompiled);
         $('#AllDatasets').append(row);
