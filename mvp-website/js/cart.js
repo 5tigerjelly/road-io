@@ -4,6 +4,13 @@ var prefUserName = "";
 var identityID = "";
 var sub = "";
 
+// // Load the SDK for JavaScript
+// $(document).ready(function() {
+//     $('#dataTables-example').DataTable({
+//         responsive: true
+//     });
+// });
+
 $(function() {
    checkSession();
    getDatasets();
@@ -78,6 +85,8 @@ function getDatasets() {
     else {
       // console.log(data);           // successful response
       var datasetObjects = data["Contents"];
+      console.log(datasetObjects);
+      console.log(datasetObjects.length);
       var counter = 1;
       datasetObjects.forEach(function(element) {
         var datasetName = element["Key"];
@@ -85,7 +94,9 @@ function getDatasets() {
         
         var row = $("<tr></tr>");
         var tableID = $("<td></td>").text(counter);
-        var zip = $("<td></td>").html(datasetName);
+        var aTag = $("<a></a>").text(datasetName);
+        aTag.attr("href", "https://s3-us-west-2.amazonaws.com/roadio-datasets/" + datasetName);
+        var zip = $("<td></td>").html(aTag);
 
         var country = "";
         if (counter == 1) {
@@ -98,25 +109,17 @@ function getDatasets() {
           country = "Denmark";
         }
 
-        var countryOfOrigin = $("<td></td>").text(country);
         var dateCompiled = $("<td></td>").text(lastModified);
-        var checkbox = $("<input class='checkbox_check' type='checkbox' name='added' value=" + datasetName + ">")
-        var checkboxData = $("<td align='center'></td>").html(checkbox);
-        row.append(tableID, zip, countryOfOrigin, dateCompiled, checkboxData);
-        $('#AllDatasets').append(row);
+        row.append(tableID, zip, dateCompiled);
+        $('#myDatasets').append(row);
         counter += 1;
+
+
       });
 
-      $("#datasetsTable").DataTable();
+      $("#dataTables-example").DataTable();
       //var datasetName = (data["Contents"]["0"]["Key"])
     }     
   });
 }
 
-$('#datasetsTable').on('click', 'input[type="checkbox"]', function() {
-  if ($('.checkbox_check').is(':checked')){
-    $('#cartInsert').removeClass('disabled');
-  } else{
-    $('#cartInsert').addClass('disabled');
-  }
-});    
