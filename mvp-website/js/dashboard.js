@@ -4,6 +4,13 @@ var prefUserName = "";
 var identityID = "";
 var sub = "";
 
+// Load the SDK for JavaScript
+
+
+
+
+
+
 $(function() {
    checkSession();
 });
@@ -56,24 +63,6 @@ AWS.config.update({
             idenittyID = AWS.config.credentials.identityId;
         }
         });
-/*AWS.config.credentials.get(function(){
-
-    var accessKeyId = AWS.config.credentials.accessKeyId;
-    var secretAccessKey = AWS.config.credentials.secretAccessKey;
-    var sessionToken = AWS.config.credentials.sessionToken;
-    console.log(accessKeyId);
-    console.log(secretAccessKey);
-
-});*/
-
-//        var s3 = new AWS.S3({
-//  apiVersion: '2006-03-01',
-//  params: {Bucket: 'driver-videos'}});
-//  var prefix = encodeURIComponent('InfoCapstone2017.mp4');
-//  s3.getObject({Bucket: 'driver-videos/us-west-2:8355b030-71cf-4a95-8ab2-d7a9ae9f5abe', Key: prefix}, function(err, data) { if(err) { console.log(err); } else { console.log(data);} });
-//s3.listObjects({Delimiter: '/'}, function(err, data) {
-//    if(err) { console.log(err); } else { console.log(data); } 
-//});
       });
       $('#signout').click(function(){
         cognitoUser.signOut();
