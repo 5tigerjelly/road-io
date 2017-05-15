@@ -42,7 +42,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link href="../css/purchasedDatasets.css" rel="stylesheet">
+    <link href="../css/checkout.css" rel="stylesheet">
 
 </head>
 
@@ -71,7 +71,7 @@
                         <p id="spacingNavLinks"><a href="purchasedDatasets.html" class="NavLinksActions">Purchased Datasets</a></p>
                 </li>
                 <li class="dropdown">
-                    <a href="cart.html" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
+                    <a href="customerDashboard.html" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
                 </li>
                 <li class="dropdown">
                 </li>
@@ -103,28 +103,59 @@
         <div class="container">
             <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Your Dashboard</h1>
+                        <h1 class="page-header">Order Confirmation</h1>
                     </div>
             </div>
             <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    Your Purchased Datasets
-                </div>
-                <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <table width="100%" class="table table-hover" id="myDatasets">
+                    <table width="100%" class="table table-striped" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Name</th>
-                                <th>Date Purchased</th>
+                                <th>Price</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr class="odd gradeX">
+                                <td>somethingElse.zip</td>
+                                <td>$260.99</td>
+                            </tr>
+                            <tr class="even gradeC">
+                                <td>somethingElse.zip</td>
+                                <td>$320.99</td>
+                            </tr>
+                            <tr class="odd gradeA">
+                                <td>somethingElse.zip</td>
+                                <td>$150.99</td>
+                            </tr>
+                            <tr class="even gradeA">
+                                <td>somethingElse.zip</td>
+                                <td>$180.99</td>
+                            </tr>
+                            <tr class="odd gradeA">
+                                <td>somethingElse.zip</td>
+                                <td>$420.99</td>
+                            </tr>
+                            <tr class="even gradeA">
+                                <td>somethingElse.zip</td>
+                                <td>$260.99</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>somethingElse.zip</td>
+                                <td>$310.99</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>somethingElse.zip</td>
+                                <td>$290.99</td>
+                            </tr>
                         </tbody>
                     </table>
+                    <div style="clear: both">
+                        <h1 id="grand">GRAND TOTAL:</h1>
+                        <h1 id="total">$2197.92</h1>
+                    </div>
                     <!-- /.table-responsive -->
                 </div>
                 <!-- /.panel-body -->
@@ -132,6 +163,9 @@
             <!-- /.panel -->
         </div>
         <!-- /.col-lg-12 -->
+    </div>
+    <div>
+    <button id="checkout" type="submit" class="btn btn-primary btn-lg btn-block">Place Order</button>
     </div>
             <!-- /.row -->
     <!-- jQuery -->
@@ -153,13 +187,8 @@
     <script src="../vendor/morrisjs/morris.min.js"></script>
     <script src="../data/morris-data.js"></script>
 
-    <script src="../js/aws-cognito-sdk.min.js"></script>
-    <script src="../js/amazon-cognito-identity.min.js"></script>
-    <script src="../js/jwt-decode.min.js"></script>
-    <script src="../js/aws-sdk.min.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-    <script src="../js/purchasedDatasets.js"></script>
+    <script src="../js/customerDashboard.js"></script>
 </body>
 </html>

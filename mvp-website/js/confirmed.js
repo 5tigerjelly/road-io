@@ -4,6 +4,13 @@ var prefUserName = "";
 var identityID = "";
 var sub = "";
 
+// // Load the SDK for JavaScript
+// $(document).ready(function() {
+//     $('#dataTables-example').DataTable({
+//         responsive: true
+//     });
+// });
+
 $(function() {
    checkSession();
    getDatasets();
@@ -60,6 +67,7 @@ AWS.config.update({
   }
   else {
     window.location.replace("login.html");
+ 
   }
 }
 
@@ -75,47 +83,28 @@ function getDatasets() {
       console.log(err, err.stack); // an error occurred
     }
     else {
-      // console.log(data);           // successful response
       var datasetObjects = data["Contents"];
       var counter = 1;
       datasetObjects.forEach(function(element) {
         var datasetName = element["Key"];
-        var lastModified = element["LastModified"]
         
         var row = $("<tr></tr>");
         var tableID = $("<td></td>").text(counter);
-        var zip = $("<td></td>").html(datasetName);
+        var aTag = $("<a></a>").text(datasetName);
+        aTag.attr("href", "https://s3-us-west-2.amazonaws.com/roadio-datasets/" + datasetName);
+        var zip = $("<td></td>").html(aTag);
 
-        var country = "";
-        if (counter == 1) {
-          country = "Austria";
-        } else if (counter == 2) {
-          country = "Belgium";
-        } else if (counter == 3) {
-          country = "China";
-        } else if (counter == 4) {
-          country = "Denmark";
-        }
-
-        var countryOfOrigin = $("<td></td>").text(country);
-        var dateCompiled = $("<td></td>").text(lastModified);
         var checkbox = $("<input class='checkbox_check' type='checkbox' name='added' value=" + datasetName + ">")
         var checkboxData = $("<td align='center'></td>").html(checkbox);
-        row.append(tableID, zip, countryOfOrigin, dateCompiled, checkboxData);
-        $('#AllDatasets').append(row);
+        row.append(checkboxData, zip);
+        $('#myDatasets').append(row);
         counter += 1;
+
+
       });
 
-      $("#datasetsTable").DataTable();
+      $("#dataTables-example").DataTable();
     }     
   });
 }
-
-$('#datasetsTable').on('click', 'input[type="checkbox"]', function() {
-  if ($('.checkbox_check').is(':checked')) {
-    $('#cartInsert').removeClass('disabled');
-  } else {
-    $('#cartInsert').addClass('disabled');
-  }
-});
 
