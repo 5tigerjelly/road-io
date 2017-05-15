@@ -42,7 +42,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link href="../css/purchasedDatasets.css" rel="stylesheet">
+    <link href="../css/confirmed.css" rel="stylesheet">
 
 </head>
 
@@ -102,8 +102,9 @@
         </nav>
         <div class="container">
             <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Your Dashboard</h1>
+                    <div class="col-lg-12" style="clear: both">
+                        <div class=container id="checkIconDiv"><i id="checkmark" class="fa fa-check-circle" id="iconsInMenu"></i></div>
+                        <div class=container id="textDiv"><h1 id="confirm" class="page-header">Confirmed!</h1></div>
                     </div>
             </div>
             <div class="row">
@@ -117,9 +118,8 @@
                     <table width="100%" class="table table-hover" id="myDatasets">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th></th>
                                 <th>Name</th>
-                                <th>Date Purchased</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -133,6 +133,12 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
+    <p>
+        <button id="checkout" type="submit" class="btn btn-success btn-lg btn-block">Download As...</button>
+    </p>
+    <p>
+        <button id="checkout" type="submit" class="btn btn-primary btn-lg btn-block">Download Later</button>
+    </p>
             <!-- /.row -->
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -160,6 +166,6 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-    <script src="../js/purchasedDatasets.js"></script>
+    <script src="../js/confirmed.js"></script>
 </body>
 </html>
