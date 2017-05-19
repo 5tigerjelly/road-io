@@ -72,7 +72,7 @@ AWS.config.update({
          url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?type=total",
          type: "GET",
          headers: {"Authorization": idToken, "Content-Type": "application/json"},
-         success: function(result) { $('#totalAmount').html("$" + result.totalAmount); }
+         success: function(result) { $('#totalAmount').html("$" + result.totalAmount.toFixed(2)); }
       });
 
       $.ajax({
