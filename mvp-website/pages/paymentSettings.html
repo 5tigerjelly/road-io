@@ -87,89 +87,13 @@
     <div class="container">
         <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Your Dashboard</h1>
+                    <h1 class="page-header">Payment Settings</h1>
                 </div>
         </div>
     <div class="row">
-        <div class="col-lg-4 col-md-6">
-            <div class="panel panel-green">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-paypal fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div id="totalAmount" class="huge"></div>
-                        </div>
-                    </div>
-                </div>
-                <b>
-                    <div class="panel-footer">
-                        <span class="pull-left"></span>
-                        <div class="clearfix">Total Amount Made</div>
-                    </div>
-                </b>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-            <div class="panel panel-yellow">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-clock-o fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div id="totalHours" class="huge"></div>
-                        </div>
-                    </div>
-                </div>
-                <b>
-                    <div class="panel-footer">
-                        <span class="pull-left"></span>
-                        <div class="clearfix">Number of Hours Uploaded</div>
-                    </div>
-                </b>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-fire fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div id="longestStreak" class="huge"></div>
-                        </div>
-                    </div>
-                </div>
-                <b>
-                    <div class="panel-footer">
-                        <span class="pull-left"></span>
-                        <div class="clearfix">Longest Streak</div>
-                    </div>
-                </b>
-            </div>
-        </div>
+        <a target="_blank" href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_32D88BD1qLklliziD7gYQvctJIhWBSQ7&scope=read_write"><img src="../blue-on-light/blue-on-light@2x.png" width="250" height="42"></a>
     </div>
         <!-- /.row -->
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Income Over Time
-                </div>
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <div id="morris-area-chart"></div>
-                </div>
-                <!-- /.panel-body -->
-            </div>
-        </div>
-        <div class="col-sm-6" id="RSSfeed">
-            <!-- start feedwind code --> <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="28042/"></script> <!-- end feedwind code -->
-        </div>
-    </div>
 </div>
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
