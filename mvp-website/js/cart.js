@@ -13,7 +13,9 @@ var sub = "";
 
 $(function() {
    checkSession();
-   getDatasets();
+   //getDatasets();
+   console.log('Hi');
+   loadCurrentCart();
 });
 
 function checkSession(){
@@ -39,18 +41,18 @@ function checkSession(){
         prefUserName = result[4].getValue();
         sub = result[0].getValue();
         $("#userProfileLink").html(prefUserName + "'s profile");
-AWS.config.update({
-  credentials: new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01'
-  }),
-  region: 'us-west-2'
-});
-      AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01',
-        Logins: {
-          'cognito-idp.us-west-2.amazonaws.com/us-west-2_dEcrjTcVl': session.getIdToken().getJwtToken()
-        }
-      });
+    AWS.config.update({
+      credentials: new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01'
+      }),
+      region: 'us-west-2'
+    });
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+      IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01',
+      Logins: {
+        'cognito-idp.us-west-2.amazonaws.com/us-west-2_dEcrjTcVl': session.getIdToken().getJwtToken()
+      }
+    });
     AWS.config.credentials.refresh((error) => {
         if (error) {
             console.error(error);
@@ -67,7 +69,6 @@ AWS.config.update({
   }
   else {
     window.location.replace("login.html");
- 
   }
 }
 
@@ -123,3 +124,42 @@ function getDatasets() {
   });
 }
 
+
+function loadCurrentCart() {
+  var poolData = {
+      UserPoolId : 'us-west-2_dEcrjTcVl',
+      ClientId : '2kkhe3k563aocuioe4sklhokg4'
+  };
+  var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+  var cognitoUser = userPool.getCurrentUser();
+  if (cognitoUser != null) {
+    cognitoUser.getSession(function(err, session) {
+      if (err) {
+          alert(err);
+          return;
+      } 
+      idToken = session.idToken.jwtToken;
+      email = cognitoUser.usernmae;
+      cognitoUser.getUserAttributes(function(err, result) {
+        if (err) {
+            alert(err);
+            return;
+        }
+        var user_id = result[0].getValue();
+        console.log(user_id);
+        console.log('USER_ID: ' + user_id);
+        prefUserName = result[4].getValue();
+        sub = result[0].getValue();
+        $("#userProfileLink").html(prefUserName + "'s profile");
+        
+        $.ajax({
+          url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
+          data: user_id,
+          type: "GET",
+          headers: {"Authorization": idToken, "Content-Type": "application/json"},
+          success: function(result) { console.log(result); }
+        });
+      });
+    });
+  }
+}
