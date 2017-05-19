@@ -6,7 +6,6 @@ var sub = "";
 
 // Load the SDK for JavaScript
 
-
 $(function() {
    checkSession();
 });
@@ -20,13 +19,11 @@ function checkSession(){
   var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
   var cognitoUser = userPool.getCurrentUser();
   if (cognitoUser != null) {
-    console.log("got here");
     cognitoUser.getSession(function(err, session) {
       if (err) {
           alert(err);
           return;
       }
-      console.log(cognitoUser);
       idToken = session.idToken.jwtToken;
       email = cognitoUser.usernmae;
       cognitoUser.getUserAttributes(function(err, result) {
@@ -34,13 +31,8 @@ function checkSession(){
             alert(err);
             return;
         }
-        console.log(result);
-        var user_id = result[result.length-1].getValue();
-        document.cookie = "user_id=" + user_id;
-        console.log(cookie);
         prefUserName = result[4].getValue();
         sub = result[0].getValue();
-        console.log(sub);
         $("#userProfileLink").html(prefUserName + "'s profile");
 AWS.config.update({
   credentials: new AWS.CognitoIdentityCredentials({
@@ -58,7 +50,6 @@ AWS.config.update({
         if (error) {
             console.error(error);
         } else {
-            console.log('Successfully logged!');
             idenittyID = AWS.config.credentials.identityId;
         }
         });
@@ -68,31 +59,10 @@ AWS.config.update({
         window.location.replace("login.html");
       });
       $.ajax({
-         url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?type=total",
+         url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments",
          type: "GET",
          headers: {"Authorization": idToken, "Content-Type": "application/json"},
-         success: function(result) { $('#totalAmount').html("$" + result.totalAmount.toFixed(2)); }
-      });
-
-      $.ajax({
-         url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/videos?request=totalHours",
-         type: "GET",
-         headers: {"Authorization": idToken, "Content-Type": "application/json"},
-         success: function(result) { $('#totalHours').html(result.totalHours + " hours"); }
-      });
-
-      $.ajax({
-         url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/videos?request=streak",
-         type: "GET",
-         headers: {"Authorization": idToken, "Content-Type": "application/json"},
-         success: function(result) { $('#longestStreak').html(result.longestStreak + " days"); }
-      });
-
-      $.ajax({
-         url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?year=2017",
-         type: "GET",
-         headers: {"Authorization": idToken, "Content-Type": "application/json"},
-         success: function(result) { populateChart(result.payments); }
+         success: function(result) { populatePaymentTable(result.payments); }
       });
 
  //   cognitoUser.signOut();
@@ -103,6 +73,36 @@ AWS.config.update({
     window.location.replace("login.html");
  
   }
+}
+
+function populatePaymentTable(data) {
+  console.log(data);
+  var counter = 1;
+  var total_balance = 0
+  data.forEach(function(element) {
+    total_balance += element.amount
+  });
+  data.forEach(function(element) {
+    var row = $("<tr></tr>");
+    var tableID = $("<td></td>").text(counter);
+    var d = new Date(element.timestamp);
+    var timestamp = $("<td align='center'></td>").text(d.toLocaleDateString());
+    description_info = element.vidName;
+    if(description_info == null){
+      description_info = "video " + counter
+    }
+    var description = $("<td align='center'></td>").text(description_info);
+    var amount = $("<td align='center'></td>").text(element.amount.toFixed(2));
+    
+    var balance = $("<td align='center'></td>").text(total_balance.toFixed(2));
+    total_balance -= element.amount;
+
+    row.append(tableID, timestamp, description, amount, balance);
+    $('#AllDatasets').prepend(row);
+    counter += 1;
+  });
+
+  $("#datasetsTable").DataTable();
 }
 
 function populateChart(payments) {

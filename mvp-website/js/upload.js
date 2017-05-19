@@ -84,9 +84,7 @@ function upload(file) {
   var filename = file.name;
   var prefix = encodeURIComponent(filename);
   console.log(identityID);
-  s3.putObject({Bucket: 'driver-videos/' + identityID, Key: prefix, Body: file}, function(err, data) { if(err) { console.log(err); } else { console.log(data);} });
-
- 
+  s3.putObject({Bucket: 'driver-videos/' + sub, Key: prefix, Body: file}, function(err, data) { if(err) { console.log(err); } else { console.log(data);} });
 
 }
 

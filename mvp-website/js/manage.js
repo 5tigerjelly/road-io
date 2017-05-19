@@ -122,23 +122,31 @@ function upload(file) {
 
 
 function loadVideoData(){
+  $.ajax({
+         url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/videos",
+         type: "GET",
+         headers: {"Authorization": idToken, "Content-Type": "application/json"},
+         success: function(data) {
+
+   console.log(data)
    var vidContainer = $("#vid-container");
    vidContainer.html("");
    var noMoreVids = 0;
    var thisRow = document.createElement('div');
    thisRow.className = "row";
-   if(bullshit_random_videos.videos.length == 0){
+   
+   if(data.videos.length == 0){
      thisRow.innerHTML = "<p>You currently have no videos to manage</p>";
    }
    else {
-     $.each(bullshit_random_videos.videos, function(index, element) {
+     $.each(data.videos, function(index, element) {
        if(index % 3 == 0 && index != 0) {
         vidContainer.append(thisRow);
         thisRow = document.createElement('div');
        }
        var thisCol = document.createElement('div');
        thisCol.className = "col-md-3";
-       var content = "<p>Title: " + element["title"] + "</p><p>Date Uploaded: " + (new Date (element["timestamp"])).toString('dddd MMM yyyy') + "<p><button id=\"preview-" + index + "\" class=\"preview\">preview</button></p><p><button id=\"access-" + index +"\" class=\"access\">Make video " + access[(element["private"] + 1) % 2] + "</button></p>";
+       var content = "<p>Title: " + element["vidID"] + "</p><p>Date Uploaded: " + (new Date (element["timestampUploaded"])).toString('dddd MMM yyyy') + "<p><button id=\"preview-" + index + "\" class=\"preview\">preview</button></p><p><button id=\"access-" + index +"\" class=\"access\">Make video " + access[(element["private"] + 1) % 2] + "</button></p>";
        thisCol.innerHTML = content;
        thisRow.append(thisCol);
      });
@@ -153,6 +161,7 @@ function loadVideoData(){
   $('.access').click(function(){
     changeAccess(this.id);
   });
+  }});
       
 }
 
