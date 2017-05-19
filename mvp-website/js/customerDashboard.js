@@ -118,4 +118,3 @@ $('#datasetsTable').on('click', 'input[type="checkbox"]', function() {
     $('#cartInsert').addClass('disabled');
   }
 });
-
