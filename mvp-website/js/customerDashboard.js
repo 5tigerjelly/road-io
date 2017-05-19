@@ -97,60 +97,54 @@ AWS.config.update({
   }
 }
 
-
+countryToDataset = {};
 function getDatasets() {
-  AWS.config.update({accessKeyId: 'AKIAIYWRLAEZKKEYEWSQ', secretAccessKey: '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', region: 'us-west-2'});
-  var s3 = new AWS.S3();
-  var params = {
-    Bucket: 'roadio-datasets',
-    MaxKeys: 1000,
-  };
-  s3.listObjectsV2(params, function(err, data) {
-    if (err) {
-      console.log(err, err.stack); // an error occurred
-    }
-    else {
-      // console.log(data);           // successful response
-      var datasetObjects = data["Contents"];
-      var counter = 1;
-      datasetObjects.forEach(function(element) {
-        var datasetName = element["Key"];
-        var lastModified = element["LastModified"]
-        
-        var row = $("<tr></tr>");
-        var tableID = $("<td></td>").text(counter);
-        var zip = $("<td></td>").html(datasetName);
+  $.ajax({
+    url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/getDatasetCountry",
+    type: "GET",
+    headers: {"Authorization": idToken, "Content-Type": "application/json"},
+    success: function(result) { 
 
-        var country = "";
-        if (counter == 1) {
-          country = "Austria";
-        } else if (counter == 2) {
-          country = "Belgium";
-        } else if (counter == 3) {
-          country = "China";
-        } else if (counter == 4) {
-          country = "Denmark";
-        } else if (counter == 5) {
-          country = "Egypt";
-        } else if (counter == 6) {
-          country = "France";
-        } else if (counter == 7) {
-          country = "Georgia";
-        } else if (counter == 8) {
-          country = "Germany";
-        } 
+      countryToDataset = result;
+      console.log(countryToDataset);
 
-        var countryOfOrigin = $("<td></td>").text(country);
-        var dateCompiled = $("<td></td>").text(lastModified);
-        var checkbox = $("<input class='checkbox_check' type='checkbox' name='added' value=" + datasetName + ">")
-        var checkboxData = $("<td align='center'></td>").html(checkbox);
-        row.append(tableID, zip, countryOfOrigin, dateCompiled, checkboxData);
-        $('#AllDatasets').append(row);
-        counter += 1;
+      AWS.config.update({accessKeyId: 'AKIAIYWRLAEZKKEYEWSQ', secretAccessKey: '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', region: 'us-west-2'});
+      var s3 = new AWS.S3();
+      var params = {
+        Bucket: 'roadio-datasets',
+        MaxKeys: 1000,
+      };
+      s3.listObjectsV2(params, function(err, data) {
+        if (err) {
+          console.log(err, err.stack); // an error occurred
+        }
+        else {
+          // console.log(data);           // successful response
+          var datasetObjects = data["Contents"];
+          var counter = 1;
+          datasetObjects.forEach(function(element) {
+            var datasetName = element["Key"];
+            var lastModified = element["LastModified"]
+            
+            var row = $("<tr></tr>");
+            var tableID = $("<td></td>").text(counter);
+            var zip = $("<td></td>").html(datasetName);
+
+            var country = jQuery.grep(countryToDataset, function (x) { console.log('THE DATASET'); console.log(datasetName); console.log('END THE DATASET'); return x.datasetName == datasetName })[0].country;
+
+            var countryOfOrigin = $("<td></td>").text(country);
+            var dateCompiled = $("<td></td>").text(lastModified);
+            var checkbox = $("<input class='checkbox_check' type='checkbox' name='added' value=" + datasetName + ">")
+            var checkboxData = $("<td align='center'></td>").html(checkbox);
+            row.append(tableID, zip, countryOfOrigin, dateCompiled, checkboxData);
+            $('#AllDatasets').append(row);
+            counter += 1;
+          });
+
+          $("#datasetsTable").DataTable();
+        }     
       });
-
-      $("#datasetsTable").DataTable();
-    }     
+    }
   });
 }
 
@@ -204,5 +198,4 @@ $('#cartInsert').click(function () {
       });
     });
   }
-
 });
