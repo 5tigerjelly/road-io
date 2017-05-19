@@ -7,10 +7,6 @@ var sub = "";
 // Load the SDK for JavaScript
 
 
-
-
-
-
 $(function() {
    checkSession();
 });
@@ -39,6 +35,9 @@ function checkSession(){
             return;
         }
         console.log(result);
+        var user_id = result[result.length-1].getValue();
+        document.cookie = "user_id=" + user_id;
+        console.log(cookie);
         prefUserName = result[4].getValue();
         sub = result[0].getValue();
         console.log(sub);
