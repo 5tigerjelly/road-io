@@ -2,7 +2,10 @@
 
 $(function() {
    $('nav').load('nav.html');
-   session.checkSession(function() {
+   session.checkSession(function(result) {
+    if(!result.loggedIn){
+      window.location.replace("login.html");
+    }
     $.ajax({
        url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?type=total",
        type: "GET",

@@ -5,6 +5,7 @@ var session = (function(){
   var prefUserName = "";
   var identityID = "";
   var sub = "";
+  var type = "";
   var poolData = {
       UserPoolId : 'us-west-2_dEcrjTcVl',
       ClientId : '2kkhe3k563aocuioe4sklhokg4'
@@ -30,6 +31,7 @@ var session = (function(){
           console.log(result);
           prefUserName = result[4].getValue();
           sub = result[0].getValue();
+          type = result[1].getValue(); 
           console.log(sub);
           $("#userProfileLink").html(prefUserName + "'s profile");
           AWS.config.update({
@@ -56,7 +58,7 @@ var session = (function(){
                cognitoUser.signOut();
                window.location.replace("login.html");
              }); 
-              callback();
+              callback({loggedIn: true});
              }
           });
         });
@@ -64,7 +66,7 @@ var session = (function(){
     }
     else {
      console.log("not logged in");
-     // window.location.replace("login.html"); 
+     callback({loggedIn: false}); 
     }
   }
   function getToken() {
@@ -72,6 +74,9 @@ var session = (function(){
   }
   function getUserID() {
     return sub;
+  }
+  function getType() {
+    return type;
   }
   function getEmail() {
     return email;
@@ -83,6 +88,8 @@ var session = (function(){
   return {
     checkSession: checkSession,
     getToken: getToken,
+    getUserID: getUserID,
+    getType: getType,
     getEmail: getEmail,
     getUserName: getUserName
   }

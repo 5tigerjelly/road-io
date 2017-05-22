@@ -1,7 +1,21 @@
 //https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html
 
 window.onload = function() {
-  document.getElementById("submit_login").onclick = function() {login()};
+  session.checkSession(function(result){
+    if(result.loggedIn){
+      if(session.getType() == "driver"){
+        window.location.replace("dashboard.html");
+      }
+      else{
+        window.location.replace("customerDashboard.html");
+      }
+    }
+    else{
+      $("#submit_login").click(function() {
+        login()
+      });
+    }
+ });
 };
 
 function test(){
