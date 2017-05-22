@@ -1,13 +1,28 @@
 //https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html
+'use strict';
 
-var isEntity = false;
-var identityID = null;
-window.onload = function() {
-  document.getElementById("submit_signup").onclick = function() {signup()};
-  document.getElementById("check_corporate").onchange = function() {showhidden()};
-};
+$(function() {
+  $('nav').load('nav.html');
+  session.checkSession(function(result){
+    if(result.loggedIn){
+      if(session.getType() == "driver"){
+        window.location.replace("dashboard.html");
+      }
+      else{
+        window.location.replace("customerDashboard.html");
+      }
+    }
+    else{
+      document.getElementById("submit_signup").onclick = function() {signup.signup()};
+      document.getElementById("check_corporate").onchange = function() {signup.showhidden()};
+    }
+  });
+});
 
-function showhidden() {
+var signup = (function(){
+  var isEntity = false;
+  
+  function showhidden() {
     var check_box = document.getElementById("check_corporate").checked;
     var lower_box = document.getElementById("corporate_account")
     if(check_box){
@@ -17,13 +32,13 @@ function showhidden() {
       lower_box.style.display = 'none';
       isEntity = false;
     }
-};
+  };
 
-function checkPassword(){
+  function checkPassword(){
     var password = document.getElementById("password").value;
-}
+  }
 
-function signup(){
+  function signup(){
     // When using loose Javascript files:
     var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 
@@ -115,77 +130,87 @@ function signup(){
     attributeList.push(attributeCountry);
     attributeList.push(attributeCustomerType);
     userPool.signUp(email, password, attributeList, null, function(err, result){
-          if (err) {
-              alert(err);
-              return;
-          } else {
+      if (err) {
+        alert(err);
+        return;
+      } else {
   
-  var authenticationData = {
-      Username : email,
-      Password : password,
-  };
-  var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(authenticationData);
-  var poolData = {
-      UserPoolId : 'us-west-2_dEcrjTcVl',
-      ClientId : '2kkhe3k563aocuioe4sklhokg4'
-  };
-  var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
-  var userData = {
-      Username : email,
-      Pool : userPool
-  };
-  var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
-  cognitoUser.authenticateUser(authenticationDetails, {
-      onSuccess: function (result) {
-        cognitoUser.getUserAttributes(function(err,attr) {
-            console.log(result);
-AWS.config.update({
-  credentials: new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01'
-  }),
-  region: 'us-west-2'
-});
-AWS.config.credentials.clearCachedId();
-			AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-				IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01',
-				Logins: {
-					'cognito-idp.us-west-2.amazonaws.com/us-west-2_dEcrjTcVl': result.getIdToken().getJwtToken()
-				}
-			});
-    AWS.config.credentials.refresh((error) => {
-        if (error) {
-            console.error(error);
-        } else {
-            console.log('Successfully logged!');
-            identityID = AWS.config.credentials.identityId;
-            console.log(identityID);
-      $.ajax({
-         url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/user-profile",
-         type: "PUT",
-         headers: {"Authorization": result.getIdToken().getJwtToken(), "identityID": identityID, "Content-Type": "application/json"},
-         success: function(result) { console.log(result); }
-      });
-             
-        }
+        var authenticationData = {
+          Username : email,
+          Password : password,
+        };
+        var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(authenticationData);
+        var poolData = {
+          UserPoolId : 'us-west-2_dEcrjTcVl',
+          ClientId : '2kkhe3k563aocuioe4sklhokg4'
+        };
+        var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+        var userData = {
+          Username : email,
+          Pool : userPool
+        };
+        var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
+        cognitoUser.authenticateUser(authenticationDetails, {
+          onSuccess: function (result) {
+            cognitoUser.getUserAttributes(function(err,attr) {
+              console.log(result);
+              AWS.config.update({
+                credentials: new AWS.CognitoIdentityCredentials({
+                  IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01'
+                }),
+                region: 'us-west-2'
+              });
+              AWS.config.credentials.clearCachedId();
+              AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+                IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01',
+                Logins: {
+                  'cognito-idp.us-west-2.amazonaws.com/us-west-2_dEcrjTcVl': result.getIdToken().getJwtToken()
+                }
+              });
+              AWS.config.credentials.refresh((error) => {
+                if (error) {
+                  console.error(error);
+                } else {
+                  session.checkSession(function(result){
+                    if(!result.loggedIn) {
+                      return;
+                    }
+                    console.log('Successfully logged!');
+                    $.ajax({
+                      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/user-profile",
+                      type: "PUT",
+                      headers: {"Authorization": session.getToken(), "IdentityID": session.getIdentityID(),  "Content-Type": "application/json"},
+                      success: function(res) {
+                       console.log(result); 
+                       if (attr[1].getValue() == 'driver') {
+                         window.location.replace("dashboard.html")
+                         var decoded = jwt_decode(result.getAccessToken().getJwtToken());
+                         console.log(decoded);
+                         console.log('access token + ' + result.getAccessToken().getJwtToken());
+                         } else {
+                           window.location.replace("customerDashboard.html")
+                         } 
+                      }
+                    });          
+                  });
+                }
+              });           
+            });
+          },
+          onFailure: function(err) {
+            alert(err);
+          },
         });
-           
-          if (attr[1].getValue() == 'driver') {
-           // window.location.replace("dashboard.html")
-            //var decoded = jwt_decode(result.getAccessToken().getJwtToken());
-            //console.log(decoded);
-            console.log('access token + ' + result.getAccessToken().getJwtToken());
-          } else {
-            //window.location.replace("customerDashboard.html")
-          }
-        });
-      },
-
-      onFailure: function(err) {
-          alert(err);
-      },
-
-  });
-
-}
-});
-};
+      }
+    });
+  }
+  function isEntity(){
+    return isEntity;
+  }
+  
+  return {
+    signup: signup,
+    showhidden: showhidden,
+    isEntity: isEntity
+  } 
+})()

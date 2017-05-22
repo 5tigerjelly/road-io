@@ -11,8 +11,8 @@ var session = (function(){
       ClientId : '2kkhe3k563aocuioe4sklhokg4'
   };
   var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
-  var cognitoUser = userPool.getCurrentUser();
   function checkSession(callback){
+    var cognitoUser = userPool.getCurrentUser();
     console.log(cognitoUser);
     if (cognitoUser != null) {
       cognitoUser.getSession(function(err, session) {
@@ -84,6 +84,9 @@ var session = (function(){
   function getUserName() {
     return prefUserName;
   }
+  function getIdentityID() {
+    return identityID;
+  }
   
   return {
     checkSession: checkSession,
@@ -91,6 +94,7 @@ var session = (function(){
     getUserID: getUserID,
     getType: getType,
     getEmail: getEmail,
-    getUserName: getUserName
+    getUserName: getUserName,
+    getIdentityID: getIdentityID
   }
 })()
