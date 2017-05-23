@@ -2,12 +2,7 @@
 
 $(function() {
    session.checkSession(function(result) {
-    if(!result.loggedIn){
-      window.location.replace("login.html");
-    }
-    else {
-     getDatasets();
-    }
+     carCompanyRedirect(result, getDatasets);
   });
 });
 

@@ -5,7 +5,7 @@ var session = (function(){
   var prefUserName = "";
   var identityID = "";
   var sub = "";
-  var type = "";
+  var type = undefined;
   var poolData = {
       UserPoolId : 'us-west-2_dEcrjTcVl',
       ClientId : '2kkhe3k563aocuioe4sklhokg4'
@@ -31,8 +31,7 @@ var session = (function(){
           console.log(result);
           prefUserName = result[4].getValue();
           sub = result[0].getValue();
-          type = result[1].getValue(); 
-          console.log(sub);
+          type = result[1].getValue() == 'driver' ? DRIVER : CAR_COMPANY; 
           $("#userProfileLink").html(prefUserName + "'s profile");
           AWS.config.update({
             credentials: new AWS.CognitoIdentityCredentials({

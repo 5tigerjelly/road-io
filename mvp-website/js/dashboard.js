@@ -1,40 +1,40 @@
 'use strict';
 
 $(function() {
-   $('nav').load('nav.html');
-   session.checkSession(function(result) {
-    if(!result.loggedIn){
-      window.location.replace("login.html");
-    }
-    $.ajax({
-       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?type=total",
-       type: "GET",
-       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-       success: function(result) { $('#totalAmount').html("$" + result.totalAmount.toFixed(2)); }
-    });
-
-    $.ajax({
-       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/videos?request=totalHours",
-       type: "GET",
-       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-       success: function(result) { $('#totalHours').html(result.totalHours + " hours"); }
-    });
-
-    $.ajax({
-       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/videos?request=streak",
-       type: "GET",
-       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-       success: function(result) { $('#longestStreak').html(result.longestStreak + " days"); }
-    });
-
-    $.ajax({
-       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?year=2017",
-       type: "GET",
-       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-       success: function(result) { populateChart(result.payments); }
-    }); 
+  session.checkSession(function(result){
+    driverRedirect(result, populateData);
   });
 });
+
+function populateData() {
+  $.ajax({
+    url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?type=total",
+    type: "GET",
+    headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+    success: function(result) { $('#totalAmount').html("$" + result.totalAmount.toFixed(2)); }
+  });
+
+  $.ajax({
+    url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/videos?request=totalHours",
+    type: "GET",
+    headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+    success: function(result) { $('#totalHours').html(result.totalHours + " hours"); }
+  });
+
+  $.ajax({
+    url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/videos?request=streak",
+    type: "GET",
+    headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+    success: function(result) { $('#longestStreak').html(result.longestStreak + " days"); }
+  });
+
+  $.ajax({
+     url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?year=2017",
+     type: "GET",
+     headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+     success: function(result) { populateChart(result.payments); }
+  }); 
+}
 
 function populateChart(payments) {
 

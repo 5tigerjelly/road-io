@@ -2,20 +2,19 @@
 // Load the SDK for JavaScript
 
 $(function() {
-   $('nav').load('nav.html');
-   session.checkSession(function(result) {
-    if(!result.loggedIn){
-      window.location.replace("login.html");
-    }
-    $.ajax({
-      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments",
-      type: "GET",
-      headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-      success: function(result) { populatePaymentTable(result.payments); }
-    });
-    
-   });
+  session.checkSession(function(result){
+    driverRedirect(result, populateData);
+  });
 });
+
+function start(){
+  $.ajax({
+    url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments",
+    type: "GET",
+    headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+    success: function(result) { populatePaymentTable(result.payments); }
+  });
+}
 
 function populatePaymentTable(data) {
   console.log(data);

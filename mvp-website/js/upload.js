@@ -1,14 +1,8 @@
 'use strict';
 
 $(function() {
-  $('nav').load('nav.html');
-  session.checkSession(function(result) {
-    if(!result.loggedIn){
-      window.location.replace("login.html");
-    }
-    else{
-      start();
-    }
+  session.checkSession(function(result){
+    driverRedirect(result, start);
   });
 });
 

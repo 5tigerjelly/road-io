@@ -1,14 +1,8 @@
 $(function() {
-  session.checkSession(function(result) {
-    if(!result.loggedIn){
-      window.location.replace("login.html");
-    }
-    else {
-     getDatasets();
-    }
-  }); 
+   session.checkSession(function(result) {
+     carCompanyRedirect(result, getDatasets);
+  });
 });
-
 
 function getDatasets() {
   AWS.config.update({accessKeyId: 'AKIAIYWRLAEZKKEYEWSQ', secretAccessKey: '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', region: 'us-west-2'});
