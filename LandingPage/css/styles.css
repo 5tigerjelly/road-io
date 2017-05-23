@@ -592,3 +592,20 @@ img::-moz-selection {
     color: #fff;
     background: 0 0;
 }
+
+.carousel-text {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(211, 211, 211, .75);
+}
+
+.item {
+    height: 95vh !important;
+}
+
+.item > img {
+    vertical-align: middle;
+    min-width: 100vw;
+    min-height: 100%;
+    object-fit: cover;
+}
