@@ -31,6 +31,7 @@ function getDatasets() {
           // console.log(data);           // successful response
           var datasetObjects = data["Contents"];
           var counter = 1;
+          var tbl = $('#AllDatasets');
           datasetObjects.forEach(function(element) {
             var datasetName = element["Key"];
             var lastModified = element["LastModified"]
@@ -46,7 +47,7 @@ function getDatasets() {
             var checkbox = $("<input class='checkbox_check' type='checkbox' name='added' value=" + datasetName + ">")
             var checkboxData = $("<td align='center'></td>").html(checkbox);
             row.append(tableID, zip, countryOfOrigin, dateCompiled, checkboxData);
-            $('#AllDatasets').append(row);
+            tbl.append(row);
             counter += 1;
           });
 
@@ -64,6 +65,7 @@ function getDatasets() {
             var cart = $('input:checkbox:checked').map(function() {
               return this.value;
             }).get();
+          console.log(JSON.stringify({ user_id: session.getUserID(), cart: cart}))
  
             $.ajax({
               url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",

@@ -181,14 +181,14 @@ var signup = (function(){
                       type: "PUT",
                       headers: {"Authorization": session.getToken(), "IdentityID": session.getIdentityID(),  "Content-Type": "application/json"},
                       success: function(res) {
-                       console.log(result); 
-                       if (attr[1].getValue() == 'driver') {
-                         window.location.replace("dashboard.html")
+                       console.log(res); 
+                       if (attr[1].getValue() == DRIVER) {
+                         //window.location.replace("dashboard.html")
                          var decoded = jwt_decode(result.getAccessToken().getJwtToken());
                          console.log(decoded);
                          console.log('access token + ' + result.getAccessToken().getJwtToken());
                          } else {
-                           window.location.replace("customerDashboard.html")
+                          // window.location.replace("customerDashboard.html")
                          } 
                       }
                     });          
