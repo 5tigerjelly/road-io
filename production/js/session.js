@@ -6,14 +6,14 @@ var session = (function(){
   var identityID = "";
   var sub = "";
   var type = undefined;
+  var cognitoUser = undefined;
   var poolData = {
       UserPoolId : 'us-west-2_dEcrjTcVl',
       ClientId : '2kkhe3k563aocuioe4sklhokg4'
   };
   var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
   function checkSession(callback){
-    var cognitoUser = userPool.getCurrentUser();
-    console.log(cognitoUser);
+    cognitoUser = userPool.getCurrentUser();
     if (cognitoUser != null) {
       cognitoUser.getSession(function(err, session) {
         if (err) {
@@ -28,7 +28,6 @@ var session = (function(){
               alert(err);
               return;
           }
-          console.log(result);
           prefUserName = result[4].getValue();
           sub = result[0].getValue();
           type = result[1].getValue() == 'driver' ? DRIVER : CAR_COMPANY; 
@@ -50,7 +49,6 @@ var session = (function(){
               console.error(error);
             }
             else {
-              console.log('Successfully logged!');
               identityID = AWS.config.credentials.identityId;
              $("#userProfileLink").html(prefUserName + "'s profile");
              $('#signout').click(function(){
@@ -86,6 +84,10 @@ var session = (function(){
   function getIdentityID() {
     return identityID;
   }
+
+  function logOut(){
+    cognitoUser.signOut();
+  }
   
   return {
     checkSession: checkSession,
@@ -94,6 +96,7 @@ var session = (function(){
     getType: getType,
     getEmail: getEmail,
     getUserName: getUserName,
-    getIdentityID: getIdentityID
+    getIdentityID: getIdentityID,
+    logOut: logOut
   }
 })()

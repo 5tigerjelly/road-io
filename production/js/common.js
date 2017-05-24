@@ -4,7 +4,6 @@ let CAR_COMPANY = 1;
 
 
 function driverRedirect(result, callback){
-    $('nav').load('nav.html');
     if(!result.loggedIn){
       window.location.replace("login.html");
     }
