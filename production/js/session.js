@@ -7,6 +7,8 @@ var session = (function(){
   var sub = "";
   var type = undefined;
   var cognitoUser = undefined;
+  var phone = "";
+  var local = "";
   var poolData = {
       UserPoolId : 'us-west-2_dEcrjTcVl',
       ClientId : '2kkhe3k563aocuioe4sklhokg4'
@@ -22,7 +24,7 @@ var session = (function(){
         }
         //console.log(cognitoUser);
         idToken = session.idToken.jwtToken;
-        email = cognitoUser.usernmae;
+        email = cognitoUser.username;
         cognitoUser.getUserAttributes(function(err, result) {
           if (err) {
               alert(err);
@@ -30,7 +32,9 @@ var session = (function(){
           }
           prefUserName = result[4].getValue();
           sub = result[0].getValue();
-          type = result[1].getValue() == 'driver' ? DRIVER : CAR_COMPANY; 
+          type = result[1].getValue() == 'driver' ? DRIVER : CAR_COMPANY;
+          phone = result[3].getValue();
+          local = result[5].getValue();
           $("#userProfileLink").html(prefUserName + "'s profile");
           AWS.config.update({
             credentials: new AWS.CognitoIdentityCredentials({
@@ -54,7 +58,7 @@ var session = (function(){
              $('#signout').click(function(){
                cognitoUser.signOut();
                window.location.replace("login.html");
-             }); 
+             });
               callback({loggedIn: true});
              }
           });
@@ -63,7 +67,7 @@ var session = (function(){
     }
     else {
      console.log("not logged in");
-     callback({loggedIn: false}); 
+     callback({loggedIn: false});
     }
   }
   function getToken() {
@@ -88,7 +92,14 @@ var session = (function(){
   function logOut(){
     cognitoUser.signOut();
   }
-  
+
+  function getPhone() {
+    return phone;
+  }
+  function getLocal() {
+    return local;
+  }
+
   return {
     checkSession: checkSession,
     getToken: getToken,
@@ -98,5 +109,7 @@ var session = (function(){
     getUserName: getUserName,
     getIdentityID: getIdentityID,
     logOut: logOut
+    getPhone: getPhone,
+    getLocal: getLocal
   }
 })()
