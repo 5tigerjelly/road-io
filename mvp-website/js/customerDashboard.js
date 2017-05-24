@@ -15,7 +15,6 @@ function getDatasets() {
     success: function(result) { 
 
       countryToDataset = result;
-      console.log(countryToDataset);
 
       AWS.config.update({accessKeyId: 'AKIAIYWRLAEZKKEYEWSQ', secretAccessKey: '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', region: 'us-west-2'});
       var s3 = new AWS.S3();
@@ -39,7 +38,7 @@ function getDatasets() {
             var tableID = $("<td></td>").text(counter);
             var zip = $("<td></td>").html(datasetName);
 
-            var country = jQuery.grep(countryToDataset, function (x) { console.log('THE DATASET'); console.log(datasetName); console.log('END THE DATASET'); return x.datasetName == datasetName })[0].country;
+            var country = jQuery.grep(countryToDataset, function (x) { return x.datasetName == datasetName })[0].country;
 
             var countryOfOrigin = $("<td></td>").text(country);
             var dateCompiled = $("<td></td>").text(lastModified);
@@ -70,7 +69,7 @@ function getDatasets() {
               data: JSON.stringify({ user_id: session.getUserID(), cart: cart}),
               type: "POST",
               headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-              success: function(result) { console.log(result); }
+              success: function(result) { }
             });
           });
         }    

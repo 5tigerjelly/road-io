@@ -4,6 +4,10 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+.Header-companyName.u-textTruncate {
+	content: 'HI';
+}
+
 #grand{
 	float: left !important;
 }

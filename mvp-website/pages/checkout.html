@@ -165,18 +165,17 @@
         <!-- /.col-lg-12 -->
     </div>
     <div>
-    <button id="checkout" type="submit" class="btn btn-primary btn-lg btn-block">Place Order</button>
-    <form action="/your-server-side-code" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_MB7viwRhuwo17E1bvJE2xRlv"
-    data-amount="219792"
-    data-name="Demo Site"
-    data-description="Widget"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="auto">
-  </script>
-</form>
+        <form action="/your-server-side-code" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_MB7viwRhuwo17E1bvJE2xRlv"
+            data-amount="219792"
+            data-name="Road.io"
+            data-description="Payment Confirmation"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto">
+          </script>
+        </form>
     </div>
             <!-- /.row -->
     <!-- jQuery -->
@@ -192,6 +191,11 @@
     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+    
+    <!-- AWS JavaScript -->
+    <script src="../js/aws-cognito-sdk.min.js"></script>
+    <script src="../js/amazon-cognito-identity.min.js"></script>
+    <script src="../js/aws-sdk.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
     <script src="../vendor/raphael/raphael.min.js"></script>
@@ -200,6 +204,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-    <script src="../js/customerDashboard.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/session.js"></script>
+    <script src="../js/checkout.js"></script>
 </body>
 </html>
