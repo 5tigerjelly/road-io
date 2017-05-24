@@ -56,6 +56,7 @@ function checkSession(){
       }
       console.log(cognitoUser);
       idToken = session.idToken.jwtToken;
+      console.log("Hello", idToken);
       email = cognitoUser.usernmae;
       cognitoUser.getUserAttributes(function(err, result) {
         if (err) {
@@ -146,7 +147,7 @@ function loadVideoData(){
        }
        var thisCol = document.createElement('div');
        thisCol.className = "col-md-3";
-       var content = "<p>Title: " + element["vidID"] + "</p><p>Date Uploaded: " + (new Date (element["timestampUploaded"])).toString('dddd MMM yyyy') + "<p><button id=\"preview-" + index + "\" class=\"preview\">preview</button></p><p><button id=\"access-" + index +"\" class=\"access\">Make video " + access[(element["private"] + 1) % 2] + "</button></p>";
+       var content = "<p>Title: " + element["vidID"] + "</p><p>Date Uploaded: " + (new Date (element["timestampUploaded"])).toString('dddd MMM yyyy') + "<p><button id=\"preview-" + index + "\" class=\"preview\">preview</button></p>";
        thisCol.innerHTML = content;
        thisRow.append(thisCol);
      });
