@@ -1,44 +1,57 @@
-$(function() {
-   session.checkSession(function(result) {
-     carCompanyRedirect(result, loadCurrentCart);
-  });
-});
+'use strict';
+var cart = (function(){
+var items = new Set();
+ 
 
-function loadCurrentCart() {        
-  $.ajax({
-    url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
-    data: session.getUserID(),
-    type: "GET",
-    headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-    success: function(result) {
-     let cartTable = $('#cart-table');
-     console.log(result.cart);
-     $.each(result.cart, function(i, item){
-       let row = $('<tr id="row-' + i + '"></tr>').appendTo(cartTable);
-       $('<td>' + item + '</td>').appendTo(row);
-       $('<td><i class="fa fa-minus-circle remove" id="remove-' + i + '">').appendTo(row);
+  function refreshCart(callback) {        
+    $.ajax({
+      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
+      data: session.getUserID(),
+      type: "GET",
+      headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+      success: function(result) {
+        items = new Set(result.cart); 
+        console.log(items);
+        callback()
+      }
+    });
+  }
 
-     });
-     $('.remove').click(function(){
-       var id = $(this).attr('id').split('-')[1];
-       console.log(id);
-       var rowToRemove = $('#row-' + id);
-       var item = rowToRemove.children(':first').html();
-       console.log(item);
-       rowToRemove.remove();
-       removeItem(item);
-     });
-    }
-  });
-}
+  function getCart(){
+    return items;
+  }
+  
+  function addItems(itemsToAdd){
+    $.ajax({
+      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
+      data: JSON.stringify({ cart: itemsToAdd}),
+      type: "POST",
+      headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+      success: function(result) {
+        itemsToAdd.forEach(function(item){
+          items.add(item);
+        });
+      }
+    });
+  }
 
+  function removeItem(item){
+    $.ajax({
+      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
+      data: JSON.stringify({ item: item}),
+      type: "DELETE",
+      headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+      success: function(result) {
+        items.delete(item);
+      }
+    });
+  }
 
-function removeItem(item){
-  $.ajax({
-    url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
-    data: JSON.stringify({ item: item}),
-    type: "DELETE",
-    headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-    success: function(result) { console.log(result)}
-  });
-}
+  return {
+    refreshCart : refreshCart,
+    getCart : getCart,
+    removeItem : removeItem,
+    addItems : addItems
+  } 
+})()
+ 
