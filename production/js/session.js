@@ -99,6 +99,14 @@ var session = (function(){
   function getLocal() {
     return local;
   }
+  
+  function changePassword(oldPass, newPass, callback){
+    cognitoUser.changePassword(oldPass, newPass, callback);
+  }
+  
+  function deleteAccount(callback){
+    cognitoUser.deleteUser(callback);
+  }
 
   return {
     checkSession: checkSession,
@@ -108,8 +116,10 @@ var session = (function(){
     getEmail: getEmail,
     getUserName: getUserName,
     getIdentityID: getIdentityID,
-    logOut: logOut
+    logOut: logOut,
     getPhone: getPhone,
-    getLocal: getLocal
+    getLocal: getLocal,
+    changePassword: changePassword,
+    deleteAccount: deleteAccount
   }
 })()
