@@ -102,8 +102,18 @@
 			</div>
       <div class="panel panel-default">
         <div class="panel-body">
-          <button type="button" class="btn btn-outline btn-primary btn-lg">Change Password</button>
-          <button type="button" class="btn btn-outline btn-danger btn-lg">Delete Account</button>
+          <button id="open_change_pass" type="button" class="btn btn-outline btn-primary btn-lg">Change Password</button>
+          <button id="delete_account" type="button" class="btn btn-outline btn-danger btn-lg">Delete Account</button>
+        </div>
+      </div>
+  
+
+      <div id="change_pass" class="panel panel-default">
+        <div class="panel-body">
+        Current Password: <input id="cur_pass" type="password">
+        New Password: <input id="new_pass" type="password">
+        New Password Confirm: <input id="new_pass_conf" type="password">
+        <button id="submit_change_pass" class="btn">Submit</button>
         </div>
       </div>
 		</div>
