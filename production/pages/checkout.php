@@ -43,6 +43,7 @@
     <![endif]-->
 
     <link href="../css/checkout.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="../resources/favicon.ico" />
 
 </head>
 
@@ -67,7 +68,7 @@
                 <li class="dropdown">
                         <p id="spacingNavLinks"><a href="customerDashboard.html" class="NavLinksActions">Dashboard</a></p>
                     </li>
-                    <li class="dropdown">                        
+                    <li class="dropdown">
                         <p id="spacingNavLinks"><a href="purchasedDatasets.html" class="NavLinksActions">Purchased Datasets</a></p>
                 </li>
                 <li class="dropdown">
@@ -120,7 +121,7 @@
                         <tbody>
                             <tr class="odd gradeX">
                                 <td>somethingElse.zip</td>
-                                <td class="money">$100.99</td>
+                                <td class="money">$300.99</td>
                             </tr>
                             <tr class="even gradeC">
                                 <td>somethingElse.zip</td>
@@ -166,50 +167,10 @@
     </div>
     <div>
     <form action="/your-server-side-code" method="POST">
-<!--   <script 
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_MB7viwRhuwo17E1bvJE2xRlv"
-    data-amount="219792"
-    data-name="Road.io"
-    data-description="Payment Confirmation"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="auto">
-  </script> -->
+
   <script src="https://checkout.stripe.com/checkout.js"></script>
 
   <button id="customButton" type="button" class="btn btn-primary btn-lg btn-block">Purchase with card</button>
-
-  <script>
-  var handler = StripeCheckout.configure({
-    key: 'pk_test_MB7viwRhuwo17E1bvJE2xRlv',
-    image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-    locale: 'auto',
-    token: function(token) {
-      // You can access the token ID with `token.id`.
-      // Get the token ID to your server-side code for use.
-    }
-  });
-
-  document.getElementById('customButton').addEventListener('click', function(e) {
-    var amount = document.getElementById("total").textContent;
-    amount = amount.substring(1, amount.length);
-    amount = String(amount).replace(/\./g,'')
-    console.log('AMOUNT: ' + amount)
-    // Open Checkout with further options:
-    handler.open({
-      name: 'Road.io',
-      description: 'Payment Confirmation',
-      zipCode: true,
-      amount: amount
-    });
-    e.preventDefault();
-  });
-
-  // Close Checkout on page navigation:
-  window.addEventListener('popstate', function() {
-    handler.close();
-  });
-  </script>
 
 </form>
     </div>

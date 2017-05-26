@@ -3,6 +3,8 @@
 
 <head>
 
+<title>Road.io &mdash; Upload Confirmation</title>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,6 +36,8 @@
     <![endif]-->
 
     <link href="../css/dashboard.css" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="../resources/favicon.ico" />
 
 </head>
 

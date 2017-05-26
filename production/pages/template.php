@@ -35,6 +35,8 @@
 
     <link href="../css/dashboard.css" rel="stylesheet">
 
+    <link rel="shortcut icon" type="image/png" href="../resources/favicon.ico" />
+
 </head>
 
 <body>

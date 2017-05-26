@@ -10,6 +10,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Codeply">
+
+    <link rel="shortcut icon" type="image/png" href="../resources/favicon.ico" />
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/animate.min.css" />
     <link rel="stylesheet" href="../css/ionicons.min.css" />
@@ -58,7 +60,7 @@
                         <a class="page-scroll" href="#four"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#last">Contact</a>
+                        <a class="page-scroll" href="#features">Features</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -89,13 +91,13 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img class="first-slide" src="../resources/dashboardcamera-smallx.png" alt="First slide"><div class="container carousel-text" id="firstText"><h1>Grab Your Dashcam</h1> <p>and hit the road! As you go about your day, make sure to hit play.</p><p>When you've finished your trip, upload the footage! You'll be paid per video.</p></div>
+                    <img class="first-slide" src="../resources/dashboardCamera.jpg" alt="First slide"><div class="container carousel-text" id="firstText"><h1>Grab Your Dashcam</h1> <p>and hit the road! As you go about your day, make sure to hit play.</p><p>When you've finished your trip, upload the footage! You'll be paid per video.</p></div>
                 </div>
                 <div class="item">
-                    <img class="second-slide" src="../resources/markingx.png" alt="Second slide"><div class="container carousel-text" id="secondText"><h1>We generate stills</h1><p>from the videos you submit and associate each image with some tags.</p><p>These are then compiled into datasets ready to be purchased by enterprises.</p></div>
+                    <img class="second-slide" src="../resources/marking.jpeg" alt="Second slide"><div class="container carousel-text" id="secondText"><h1>We generate stills</h1><p>from the videos you submit and associate each image with some tags.</p><p>These are then compiled into datasets ready to be purchased by enterprises.</p></div>
                 </div>
                 <div class="item">
-                    <img class="third-slide" src="../resources/coworkingx.png" alt="Third slide"><div class="container carousel-text" id="secondText"><h1>Your contributions make a huge impact </h1><p>to the hundreds of Computer Vision Specialists bringing exciting new technologies into the market.</p><p>Thank You for being a part of a global community advancing the state-of-the art in science and engineering.</p></div>
+                    <img class="third-slide" src="../resources/coworking.jpg" alt="Third slide"><div class="container carousel-text" id="secondText"><h1>Your contributions make a huge impact </h1><p>to the hundreds of Computer Vision Specialists bringing exciting new technologies into the market.</p><p>Thank You for being a part of a global community advancing the state-of-the art in science and engineering.</p></div>
                 </div>
             </div>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
