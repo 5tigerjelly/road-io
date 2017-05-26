@@ -62,11 +62,27 @@ function getDatasets() {
 
             $('#cartInsert').click(function () {
               var items = $('input:checkbox:checked').map(function() {
+                console.log(this.value);
                 return this.value;
               }).get();
+              console.log(items);
+
+              var associatedCountries = $('input:checkbox:checked').map(function() {
+                console.log(this.parentElement.parentElement.childNodes[2].innerText)
+                return this.parentElement.parentElement.childNodes[2].innerText;
+              }).get();
+              console.log(associatedCountries);
+
+              var associativeArray = new Object();
+              for(var i=0;i<3;i++){
+                associativeArray[items[i]] = associatedCountries[i];
+              }
+              if (associativeArray.hasOwnProperty('undefined')) {
+                delete associativeArray["undefined"];
+              }
+              console.log(associativeArray);
               cart.addItems(items);
               items.forEach(function(item){
-                console.log('#' + item + '-cb');
                 $('#' + item.split('.')[0] + '-cb').html('<i class="glyphicon glyphicon-ok">');
               });
                 
