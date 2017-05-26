@@ -1,5 +1,7 @@
 'use strict';
 
+var CART = new Set();
+
 $(function() {
    session.checkSession(function(result) {
      carCompanyRedirect(result, getDatasets);
@@ -13,7 +15,7 @@ function getDatasets() {
       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/getDatasetCountry",
       type: "GET",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-      success: function(result) { 
+      success: function(result) {
         countryToDataset = result;
         AWS.config.update({accessKeyId: 'AKIAIYWRLAEZKKEYEWSQ', secretAccessKey: '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', region: 'us-west-2'});
         var s3 = new AWS.S3();
@@ -52,12 +54,24 @@ function getDatasets() {
 
             $("#datasetsTable").DataTable();
 
-            $('#datasetsTable').on('click', 'input[type="checkbox"]', function() {
-              if ($('.checkbox_check').is(':checked')) {
+            $('#datasetsTable').on('click', 'input[type="checkbox"]', function(data) {
+              var dataValue = data.currentTarget.value;
+              // add
+              if(data.currentTarget.checked){
+                CART.add(dataValue);
+              //r emove
+              }else{
+                CART.delete("" + dataValue);
+              }
+
+              // #enabling
+              if (CART.size > 0) {
                 $('#cartInsert').removeClass('disabled');
+              // #disabling
               } else {
                 $('#cartInsert').addClass('disabled');
               }
+              console.log(CART);
             });
 
             $('#cartInsert').click(function () {
@@ -77,18 +91,18 @@ function getDatasets() {
               for(var i=0;i<3;i++){
                 associativeArray[items[i]] = associatedCountries[i];
               }
-              if (associativeArray.hasOwnProperty('undefined')) {
-                delete associativeArray["undefined"];
-              }
+              // if (associativeArray.hasOwnProperty('undefined')) {
+              //   delete associativeArray["undefined"];
+              // }
               console.log(associativeArray);
-              cart.addItems(items);
+              cart.addItems(Array.from(CART));
               items.forEach(function(item){
                 $('#' + item.split('.')[0] + '-cb').html('<i class="glyphicon glyphicon-ok">');
               });
-                
+
             });
           }
-        });    
+        });
       }
     });
   });
