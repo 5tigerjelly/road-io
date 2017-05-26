@@ -166,7 +166,7 @@
     </div>
     <div>
     <form action="/your-server-side-code" method="POST">
-  <script 
+<!--   <script 
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_MB7viwRhuwo17E1bvJE2xRlv"
     data-amount="219792"
@@ -174,10 +174,10 @@
     data-description="Payment Confirmation"
     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
     data-locale="auto">
-  </script>
+  </script> -->
   <script src="https://checkout.stripe.com/checkout.js"></script>
 
-  <button id="customButton">Purchase</button>
+  <button id="customButton" type="button" class="btn btn-primary btn-lg btn-block">Purchase with card</button>
 
   <script>
   var handler = StripeCheckout.configure({

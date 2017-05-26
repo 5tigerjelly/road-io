@@ -25,6 +25,3 @@ $('.money').each(function() {
 var totalAsFloat = Number(Math.round(total+'e2')+'e-2');
 console.log(totalAsFloat);
 document.getElementById("total").textContent="$" + totalAsFloat;
-var stripeTotal = String(total).replace(/\./g,'')
-console.log(stripeTotal);
-document.getElementsByClassName("stripe-button")[0].setAttribute('data-amount', stripeTotal);
