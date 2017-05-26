@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Road.io &mdash; Driver Portal</title>
+    <title>Road.io &mdash; Payment Settings</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,6 +34,8 @@
     <![endif]-->
 
     <link href="../css/dashboard.css" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="../resources/favicon.ico" />
 
 </head>
 

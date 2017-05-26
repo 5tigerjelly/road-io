@@ -43,6 +43,7 @@
     <![endif]-->
 
     <link href="../css/confirmed.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="../resources/favicon.ico" />
 
 </head>
 

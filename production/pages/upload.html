@@ -1,6 +1,8 @@
 <html>
 <head>
 
+<title>Road.io &mdash; Upload</title>
+
 <link href="../css/upload.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -23,6 +25,8 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 </script>
+
+<link rel="shortcut icon" type="image/png" href="../resources/favicon.ico" />
 </head>
   <body>
     <!-- Navigation -->
@@ -44,9 +48,6 @@
             </li>
             <li class="dropdown">
                 <p id="spacingNavLinks"><a href="upload.html" class="NavLinksActions">Upload Videos</a></p>
-            </li>
-            <li class="dropdown">
-                <p id="spacingNavLinks"><a href="manage.html" class="NavLinksActions">Manage Videos</a></p>
             </li>
             <li class="dropdown">
                 <p id="spacingNavLinks"><a href="payment_history.html" class="NavLinksActions">Payment History</a></p>

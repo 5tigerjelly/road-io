@@ -43,6 +43,7 @@
     <![endif]-->
 
     <link href="../css/checkout.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="../resources/favicon.ico" />
 
 </head>
 
@@ -182,7 +183,7 @@
   <script>
   var handler = StripeCheckout.configure({
     key: 'pk_test_MB7viwRhuwo17E1bvJE2xRlv',
-    image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+    image: '../resources/favacon.ico',
     locale: 'auto',
     token: function(token) {
       // You can access the token ID with `token.id`.
