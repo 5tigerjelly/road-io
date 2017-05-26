@@ -89,14 +89,15 @@ function getDatasets() {
 
               var associativeArray = new Object();
               for(var i=0;i<3;i++){
-                associativeArray[items[i]] = associatedCountries[i];
+                associativeArray[CART[i]] = associatedCountries[i];
               }
               // if (associativeArray.hasOwnProperty('undefined')) {
               //   delete associativeArray["undefined"];
               // }
-              console.log(associativeArray);
+              //console.log(associativeArray);
               cart.addItems(Array.from(CART));
-              items.forEach(function(item){
+              console.log('ITEMS ' + cachedCart);
+              CART.forEach(function(item){
                 $('#' + item.split('.')[0] + '-cb').html('<i class="glyphicon glyphicon-ok">');
               });
 

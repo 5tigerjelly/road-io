@@ -1,9 +1,9 @@
 'use strict';
 var cart = (function(){
 var items = new Set();
-var historicalItems = new Set(); 
+var historicalItems = new Set();
 
-  function refreshCart(callback) {        
+  function refreshCart(callback) {
     $.ajax({
       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
       data: session.getUserID(),
@@ -11,8 +11,14 @@ var historicalItems = new Set();
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
         var cartKeys = Object.keys(result.cart);
-        items = new Set(result.cart); 
+        items = new Set(result.cart);
         console.log('Current Cart' + items);
+        console.log()
+        if (items.size > 0) {
+          var circleText = $('<svg class="theSVG" width="27" height="27"><g class="point" transform="translate(13,13)"><circle></circle><text class="pointIndex" y="5"><tspan text-anchor="middle">' + items.size + '</tspan></text></g></svg>')
+          $('#cart').parent().append(circleText);
+          console.log(items.size)
+        }
         callback()
       }
     });
@@ -21,7 +27,7 @@ var historicalItems = new Set();
   function getCart(){
     return items;
   }
-  
+
   function addItems(itemsToAdd){
     $.ajax({
       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
@@ -37,14 +43,14 @@ var historicalItems = new Set();
     });
   }
 
-  function refreshHistory(callback) {        
+  function refreshHistory(callback) {
     $.ajax({
       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/getDatasetHistory",
       data: session.getUserID(),
       type: "GET",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
-        items = new Set(result.datasetHistory); 
+        items = new Set(result.datasetHistory);
         console.log('Purchased Items: ' + items);
         callback()
       }
@@ -73,6 +79,5 @@ var historicalItems = new Set();
     getCart : getCart,
     removeItem : removeItem,
     addItems : addItems
-  } 
+  }
 })()
- 

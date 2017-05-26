@@ -16,7 +16,6 @@
 #cart {
 	padding-top: 10px;
 	font-size: 2em;
-	margin-right: 80px;
 }
 #brand{
 	margin-top: 4.5px;
@@ -34,4 +33,8 @@
 }
 .navbar {
 	background-color: #222;
+}
+
+.dropdownNEW {
+		margin-right: 80px;
 }
