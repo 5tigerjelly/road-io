@@ -120,35 +120,35 @@
                         <tbody>
                             <tr class="odd gradeX">
                                 <td>somethingElse.zip</td>
-                                <td>$260.99</td>
+                                <td class="money">$100.99</td>
                             </tr>
                             <tr class="even gradeC">
                                 <td>somethingElse.zip</td>
-                                <td>$320.99</td>
+                                <td class="money">$100.99</td>
                             </tr>
                             <tr class="odd gradeA">
                                 <td>somethingElse.zip</td>
-                                <td>$150.99</td>
+                                <td class="money">$100.99</td>
                             </tr>
                             <tr class="even gradeA">
                                 <td>somethingElse.zip</td>
-                                <td>$180.99</td>
+                                <td class="money">$100.99</td>
                             </tr>
                             <tr class="odd gradeA">
                                 <td>somethingElse.zip</td>
-                                <td>$420.99</td>
+                                <td class="money">$100.99</td>
                             </tr>
                             <tr class="even gradeA">
                                 <td>somethingElse.zip</td>
-                                <td>$260.99</td>
+                                <td class="money">$100.99</td>
                             </tr>
                             <tr class="gradeA">
                                 <td>somethingElse.zip</td>
-                                <td>$310.99</td>
+                                <td class="money">$100.99</td>
                             </tr>
                             <tr class="gradeA">
                                 <td>somethingElse.zip</td>
-                                <td>$290.99</td>
+                                <td class="money">$100.99</td>
                             </tr>
                         </tbody>
                     </table>
@@ -166,7 +166,7 @@
     </div>
     <div>
     <form action="/your-server-side-code" method="POST">
-  <script
+<!--   <script 
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_MB7viwRhuwo17E1bvJE2xRlv"
     data-amount="219792"
@@ -174,7 +174,43 @@
     data-description="Payment Confirmation"
     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
     data-locale="auto">
+  </script> -->
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+
+  <button id="customButton" type="button" class="btn btn-primary btn-lg btn-block">Purchase with card</button>
+
+  <script>
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_MB7viwRhuwo17E1bvJE2xRlv',
+    image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+    locale: 'auto',
+    token: function(token) {
+      // You can access the token ID with `token.id`.
+      // Get the token ID to your server-side code for use.
+    }
+  });
+
+  document.getElementById('customButton').addEventListener('click', function(e) {
+    var amount = document.getElementById("total").textContent;
+    amount = amount.substring(1, amount.length);
+    amount = String(amount).replace(/\./g,'')
+    console.log('AMOUNT: ' + amount)
+    // Open Checkout with further options:
+    handler.open({
+      name: 'Road.io',
+      description: 'Payment Confirmation',
+      zipCode: true,
+      amount: amount
+    });
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation:
+  window.addEventListener('popstate', function() {
+    handler.close();
+  });
   </script>
+
 </form>
     </div>
             <!-- /.row -->
