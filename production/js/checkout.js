@@ -22,10 +22,9 @@ $('.money').each(function() {
   var numberValue = parseFloat(stringValue.substring(1, stringValue.length));
   total += numberValue;
 });
-total = Number(Math.round(total+'e2')+'e-2');
-console.log(total);
-document.getElementById("total").textContent="$" + total;
-
-// $.each($('.money'), function (index, value) { 
-//   console.log($(value).text()); 
-// });
+var totalAsFloat = Number(Math.round(total+'e2')+'e-2');
+console.log(totalAsFloat);
+document.getElementById("total").textContent="$" + totalAsFloat;
+var stripeTotal = String(total).replace(/\./g,'')
+console.log(stripeTotal);
+document.getElementsByClassName("stripe-button")[0].setAttribute('data-amount', stripeTotal);
