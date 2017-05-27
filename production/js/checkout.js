@@ -1,30 +1,40 @@
 'use strict';
 
 $(function() {
-  //  session.checkSession(function(result) {
-  //    carCompanyRedirect(result, processOrder);
-  // });
+  session.checkSession(function(result) {
+     carCompanyRedirect(result, loadCheckout);
+  });
+  calculateGrandTotal()
 });
 
-// function processOrder() {
-//   var countryToDataset = {};
-//   $.ajax({
-//     url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart/processcart",
-//     type: "GET",
-//     headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-//     success: function(result) { console.log(result)}
-//   });
-// }
+function loadCheckout(callback) {
+  cart.refreshCart(function(){
+    let checkoutTable = $('#orderCheckout');
+    var checkoutItems = cart.getCart();
+    if (checkoutItems.size > 0) {
+      $('#checkout').removeClass('disabled');
+      checkoutItems.forEach(function(checkoutItem){
+        let row = $('<tr id="row-' + checkoutItem.split('.')[0] + '"></tr>').appendTo(checkoutTable);
+        $('<td>' + checkoutItem + '</td>').appendTo(row);
+        $('<td class="money">' + '$300.99' + '</td>').appendTo(row);
+      });
+    }
+  });
+  callback()
+}
 
-var total = 0.0;
-$('.money').each(function() {
-  var stringValue = this.innerHTML;
-  var numberValue = parseFloat(stringValue.substring(1, stringValue.length));
-  total += numberValue;
-});
-var totalAsFloat = Number(Math.round(total+'e2')+'e-2');
-console.log(totalAsFloat);
-document.getElementById("total").textContent="$" + totalAsFloat;
+// Call this after entire table loads
+function calculateGrandTotal() {
+  var total = 0.0;
+  $('.money').each(function() {
+    var stringValue = this.innerHTML;
+    console.log(stringValue);
+    var numberValue = parseFloat(stringValue.substring(1, stringValue.length));
+    total += numberValue;
+  });
+  var totalAsFloat = Number(Math.round(total+'e2')+'e-2');
+  document.getElementById("total").textContent="$" + totalAsFloat;
+}
 
 
 var handler = StripeCheckout.configure({
@@ -53,6 +63,8 @@ document.getElementById('customButton').addEventListener('click', function(e) {
   });
   e.preventDefault();
 });
+
+// Call processOrder before page is closed
 
 // Close Checkout on page navigation:
 window.addEventListener('popstate', function() {

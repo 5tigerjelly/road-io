@@ -14,12 +14,14 @@ var historicalItems = new Set();
         if (result.cart !== 'No such cart') {
           var cartKeys = Object.keys(result.cart);
           items = new Set(result.cart);
+          // console.log("NEW ITEMS");
+          // console.log(items);
         }
 
         if (items.size > 0) {
           var circleText = $('<svg class="theSVG" width="27" height="27"><g class="point" transform="translate(13,13)"><circle></circle><text class="pointIndex" y="5"><tspan text-anchor="middle">' + items.size + '</tspan></text></g></svg>')
           $('#cart').parent().append(circleText);
-          console.log(items.size)
+          // console.log(items.size)
         }
 
         callback()
@@ -82,12 +84,23 @@ var historicalItems = new Set();
     });
   }
 
+  function processOrder() {
+    var countryToDataset = {};
+    $.ajax({
+      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart/processcart",
+      type: "GET",
+      headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+      success: function(result) { console.log(result)}
+    });
+  }
+
   return {
     refreshCart : refreshCart,
     getCart : getCart,
     refreshHistory: refreshHistory,
     getHistory: getHistory,
     removeItem : removeItem,
-    addItems : addItems
+    addItems : addItems,
+    processOrder : processOrder
   }
 })()

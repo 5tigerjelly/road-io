@@ -101,7 +101,9 @@ function getDatasets() {
               items.forEach(function(item){
                 $('#' + item.split('.')[0] + '-cb').html('<i class="glyphicon glyphicon-ok">');
               });
-              cart.refreshCart(function() {});
+              cart.refreshCart(function() {
+                console.log('DONE')
+              });
 
             });
           }

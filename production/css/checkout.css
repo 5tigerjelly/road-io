@@ -9,7 +9,7 @@
 }
 
 #total{
-	float: right; 
+	float: right;
 	margin-right: 6.2em;
 }
 
@@ -17,7 +17,7 @@
 	font-size: 20px;
 	padding-left: : 4em;
 	color: #d9534f;
-} 
+}
 
 #spacingNavLinks {
   margin-right: 90px;
@@ -32,8 +32,8 @@
 #cart {
 	padding-top: 10px;
 	font-size: 2em;
-	margin-right: 80px;
 }
+
 #brand{
 	margin-top: 4.5px;
 }
@@ -47,4 +47,31 @@
 #companyName {
 	text-align: center;
 	font-size: 20px;
+}
+
+.navbar-default {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+}
+
+.point circle {
+  cursor: pointer;
+  text-align: center;
+  fill: #E2137E;
+  r: 12;
+  stroke: #E2137E;
+  stroke-width: 2px;
+}
+
+.theSVG {
+	margin-bottom: 0.3em;
+}
+
+.dropdownNEW {
+		margin-right: 80px;
+}
+
+.pointIndex {
+	fill: white;
+	font-weight: bold;
 }
