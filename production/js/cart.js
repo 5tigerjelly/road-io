@@ -10,15 +10,20 @@ var historicalItems = new Set();
       type: "GET",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
-        var cartKeys = Object.keys(result.cart);
-        items = new Set(result.cart);
-        console.log('Current Cart' + items);
-        console.log()
+        console.log('RESULT');
+        console.log();
+        console.log('END RESULT');
+        if (result.cart !== 'No such cart') {
+          var cartKeys = Object.keys(result.cart);
+          items = new Set(result.cart);
+        }
+
         if (items.size > 0) {
           var circleText = $('<svg class="theSVG" width="27" height="27"><g class="point" transform="translate(13,13)"><circle></circle><text class="pointIndex" y="5"><tspan text-anchor="middle">' + items.size + '</tspan></text></g></svg>')
           $('#cart').parent().append(circleText);
           console.log(items.size)
         }
+
         callback()
       }
     });
@@ -50,8 +55,8 @@ var historicalItems = new Set();
       type: "GET",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
-        items = new Set(result.datasetHistory);
-        console.log('Purchased Items: ' + items);
+        historicalItems = new Set(result.datasetHistory);
+        console.log('Purchased Items: ' + historicalItems);
         callback()
       }
     });
@@ -77,6 +82,8 @@ var historicalItems = new Set();
   return {
     refreshCart : refreshCart,
     getCart : getCart,
+    refreshHistory: refreshHistory,
+    getHistory: getHistory,
     removeItem : removeItem,
     addItems : addItems
   }

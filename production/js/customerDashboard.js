@@ -4,6 +4,7 @@ var CART = new Set();
 
 $(function() {
    session.checkSession(function(result) {
+     console.log(session.getUserID());
      carCompanyRedirect(result, getDatasets);
   });
 });
@@ -96,7 +97,7 @@ function getDatasets() {
               // }
               //console.log(associativeArray);
               cart.addItems(Array.from(CART));
-              
+
               items.forEach(function(item){
                 $('#' + item.split('.')[0] + '-cb').html('<i class="glyphicon glyphicon-ok">');
               });
