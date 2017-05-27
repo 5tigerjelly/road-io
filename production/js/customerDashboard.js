@@ -69,7 +69,7 @@ function getDatasets() {
                 $('#cartInsert').removeClass('disabled');
               // #disabling
               } else {
-                $('#cartInsert').addClass('disabled');
+              $('#cartInsert').addClass('disabled');
               }
               console.log(CART);
             });
@@ -96,10 +96,11 @@ function getDatasets() {
               // }
               //console.log(associativeArray);
               cart.addItems(Array.from(CART));
-              console.log('ITEMS ' + cachedCart);
-              CART.forEach(function(item){
+              
+              items.forEach(function(item){
                 $('#' + item.split('.')[0] + '-cb').html('<i class="glyphicon glyphicon-ok">');
               });
+              cart.refreshCart(function() {});
 
             });
           }
