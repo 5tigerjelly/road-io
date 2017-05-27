@@ -32,8 +32,11 @@ $.ajax({
   success: function(result) {
     console.log(session.getUserID());
     console.log(result);
-    // historicalItems = new Set(result.datasetHistory);
-    // console.log(historicalItems);
+
+    // if (result.datasetHistory !== 'None Purchased') {
+    //   var historyKeys = Object.keys(result.datasetHistory);
+    //   historicalItems = new Set(result.datasetHistory);
+    // }
     // callback()
   }
 });

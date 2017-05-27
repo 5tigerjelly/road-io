@@ -10,9 +10,7 @@ var historicalItems = new Set();
       type: "GET",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
-        console.log('RESULT');
-        console.log();
-        console.log('END RESULT');
+
         if (result.cart !== 'No such cart') {
           var cartKeys = Object.keys(result.cart);
           items = new Set(result.cart);
@@ -55,9 +53,14 @@ var historicalItems = new Set();
       type: "GET",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
-        historicalItems = new Set(result.datasetHistory);
-        console.log('Purchased Items: ' + historicalItems);
-        callback()
+        console.log(session.getUserID());
+        console.log(result);
+
+        // if (result.datasetHistory !== 'None Purchased') {
+        //   var historyKeys = Object.keys(result.datasetHistory);
+        //   historicalItems = new Set(result.datasetHistory);
+        // }
+        // callback()
       }
     });
   }
