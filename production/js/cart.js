@@ -84,13 +84,15 @@ var historicalItems = new Set();
     });
   }
 
-  function processOrder() {
-    var countryToDataset = {};
+  function processCart() {
     $.ajax({
       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart/processcart",
+      data: session.getUserID(),
       type: "GET",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-      success: function(result) { console.log(result)}
+      success: function(result) {
+        console.log(result);
+      }
     });
   }
 
@@ -101,6 +103,6 @@ var historicalItems = new Set();
     getHistory: getHistory,
     removeItem : removeItem,
     addItems : addItems,
-    processOrder : processOrder
+    processCart : processCart
   }
 })()

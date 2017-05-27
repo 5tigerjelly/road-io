@@ -7,7 +7,7 @@ $(function() {
   calculateGrandTotal()
 });
 
-function loadCheckout(callback) {
+function loadCheckout() {
   cart.refreshCart(function(){
     let checkoutTable = $('#orderCheckout');
     var checkoutItems = cart.getCart();
@@ -20,7 +20,7 @@ function loadCheckout(callback) {
       });
     }
   });
-  callback()
+  // callback()
 }
 
 // Call this after entire table loads
@@ -43,6 +43,8 @@ var handler = StripeCheckout.configure({
   locale: 'auto',
   token: function(token) {
     console.log(token);
+    // Call processOrder before page is closed
+    cart.processCart();
     window.location.replace("confirmed.html");
     // You can access the token ID with `token.id`.
     // Get the token ID to your server-side code for use.
@@ -64,7 +66,7 @@ document.getElementById('customButton').addEventListener('click', function(e) {
   e.preventDefault();
 });
 
-// Call processOrder before page is closed
+
 
 // Close Checkout on page navigation:
 window.addEventListener('popstate', function() {
