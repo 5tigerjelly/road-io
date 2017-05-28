@@ -1,5 +1,5 @@
 <?php 
-$title = "Road.io &mdash; Account";
+$title = "Road.io &mdash; Dashboard";
 $css = "dashboard.css";
 include_once('head.php'); ?>
 <body>
