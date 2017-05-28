@@ -38,28 +38,35 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
+              <div class="page-header">
+                  <h1>Welcome to Road.IO </h1>
+              </div>
+                <div class="login-panel panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Sign Up</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form">
                             <fieldset>
-                                <div class="form-group">
+                                <div class="form-group" id="email_form_group">
                                   <label for="email">Email</label>
                                     <input class="form-control" placeholder="E-mail" id="email" name="email" type="email" autofocus>
+                                    <span id="email_help_text" class="help-block"></span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="userName_form_group">
                                     <label for="userName">User Name</label>
                                     <input class="form-control" placeholder="User Name" id="userName" name="userName" type="text">
+                                    <span id="userName_help_text" class="help-block"></span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="password_form_group">
                                     <label for="password">Password</label>
                                     <input class="form-control" placeholder="Password" id="password" name="password" type="password" value="">
+                                    <span id="password_help_text" class="help-block"></span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="phone_form_group">
                                     <label for="phone">Phone</label>
                                     <input class="form-control" type="tel" placeholder="1-(555)-555-5555" id="phone" name="phone">
+                                    <span id="phone_help_text" class="help-block"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="country">Country</label>
@@ -100,7 +107,7 @@
                 </div>
                 <div class="panel">
                   <div class="checkbox text-center">
-                      Already have an account? <a href="login.html"> Log in Here!</a>
+                      Already have an account? <a href="login.php"> Log in Here!</a>
                   </div>
                 </div>
             </div>
