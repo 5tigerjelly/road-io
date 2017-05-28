@@ -47,7 +47,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
+              <div class="page-header">
+                  <h1>Sign in to Road.IO </h1>
+              </div>
+                <div class="login-panel panel panel-success">
                     <div class="panel-heading">
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
@@ -71,7 +74,7 @@
                 </div>
                 <div class="panel">
                   <div class="checkbox text-center">
-                      Don't have an account yet? <a href="signup.html"> Sign Up Here!</a>
+                      Don't have an account yet? <a href="signup.php"> Sign Up Here!</a>
                   </div>
                 </div>
             </div>
