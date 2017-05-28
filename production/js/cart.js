@@ -1,6 +1,7 @@
 'use strict';
 var cart = (function(){
 var items = new Set();
+var prices = new Array();
 var historicalItems = new Set();
 
 
@@ -28,7 +29,10 @@ var historicalItems = new Set();
 
         if (result.cart !== 'No such cart') {
           var cartKeys = Object.keys(result.cart);
-          console.log(result.cart)
+          prices = cartKeys.map(function(key) {
+              return result.cart[key];
+          });
+          console.log(prices)
           items = new Set(cartKeys);
         }
 
@@ -45,6 +49,10 @@ var historicalItems = new Set();
 
   function getCart(){
     return items;
+  }
+
+  function getPrices(){
+    return prices;
   }
 
   function addItems(itemsToAdd){
@@ -113,6 +121,7 @@ var historicalItems = new Set();
     getHistory: getHistory,
     removeItem : removeItem,
     addItems : addItems,
-    processCart : processCart
+    processCart : processCart,
+    getPrices : getPrices
   }
 })()

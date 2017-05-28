@@ -7,15 +7,19 @@ $(function() {
 function loadCurrentCart() {
   cart.refreshCart(function(){
     let cartTable = $('#cart-table');
-    items = cart.getCart();
-    if (items.size > 0) {
-      console.log('HI');
+    items = Array.from(cart.getCart());
+    prices = cart.getPrices();
+    console.log(items)
+    if (items.length > 0) {
       $('#checkout').removeClass('disabled');
-      items.forEach(function(item){
-        let row = $('<tr id="row-' + item.split('.')[0] + '"></tr>').appendTo(cartTable);
-        $('<td>' + item + '</td>').appendTo(row);
-        $('<td><i class="fa fa-minus-circle remove" id="remove-' + item.split('.')[0] + '">').appendTo(row);
-      });
+      for (var i = 0; i < items.length; i++) {
+        console.log(items[i])
+        let row = $('<tr id="row-' + items[i].split('.')[0] + '"></tr>').appendTo(cartTable);
+        $('<td>' + items[i] + '</td>').appendTo(row);
+        $('<td>' + prices[i] + '</td>').appendTo(row);
+        $('<td>' + '20017-05-31'+ '</td>').appendTo(row);
+        $('<td><i class="fa fa-minus-circle remove" id="remove-' + items[i].split('.')[0] + '">').appendTo(row);
+      };
 
       $('.remove').click(function(){
         var id = $(this).attr('id').split('-')[1];
