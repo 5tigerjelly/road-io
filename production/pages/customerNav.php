@@ -1,5 +1,5 @@
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -13,13 +13,13 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                        <p id="spacingNavLinks"><a href="customerDashboard.html" class="NavLinksActions">Dashboard</a></p>
+                        <p id="spacingNavLinks"><a href="customerDashboard.php" class="NavLinksActions">Dashboard</a></p>
                     </li>
                     <li class="dropdown">                        
-                        <p id="spacingNavLinks"><a href="purchasedDatasets.html" class="NavLinksActions">Purchased Datasets</a></p>
+                        <p id="spacingNavLinks"><a href="purchasedDatasets.php" class="NavLinksActions">Purchased Datasets</a></p>
                 </li>
                 <li class="dropdown">
-                    <a href="cart.html" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
+                    <a href="cart.php" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
                 </li>
                 <li class="dropdown">
                 </li>
@@ -39,7 +39,7 @@
                         <li><a href="#"><i class="fa fa-question-circle-o fa-fw" id="iconsInMenu"></i>Help &amp Support</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="../../LandingPage/index.html"><i class="fa fa-sign-out fa-fw" id="iconsInMenu"></i> Logout</a>
+                        <li><a id="signout" href="#"><i class="fa fa-sign-out fa-fw" id="iconsInMenu"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
