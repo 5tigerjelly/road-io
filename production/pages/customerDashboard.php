@@ -71,6 +71,7 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Country</th>
+                                <th>Price</th>
                                 <th>Date Compiled</th>
                                 <th>Add to Cart</th>
                             </tr>

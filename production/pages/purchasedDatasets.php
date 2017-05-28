@@ -69,10 +69,10 @@
                 <li class="dropdown">
                         <p id="spacingNavLinks"><a href="customerDashboard.html" class="NavLinksActions">Dashboard</a></p>
                     </li>
-                    <li class="dropdown">                        
+                    <li class="dropdown">
                         <p id="spacingNavLinks"><a href="purchasedDatasets.html" class="NavLinksActions">Purchased Datasets</a></p>
                 </li>
-                <li class="dropdown">
+                <li class="dropdownNEW">
                     <a href="cart.html" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
                 </li>
                 <li class="dropdown">
@@ -164,6 +164,7 @@
     <script src="../dist/js/sb-admin-2.js"></script>
     <script src="../js/common.js" type="text/javascript"></script>
     <script src="../js/session.js"></script>
+    <script src="../js/cart.js"></script>
     <script src="../js/purchasedDatasets.js"></script>
 </body>
 </html>

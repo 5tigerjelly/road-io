@@ -1,52 +1,42 @@
 $(function() {
    session.checkSession(function(result) {
-     carCompanyRedirect(result, getDatasets);
+    //  console.log(session.getUserID());
+     //carCompanyRedirect(result, loadHistory);
   });
 });
 
-function getDatasets() {
-  AWS.config.update({accessKeyId: 'AKIAIYWRLAEZKKEYEWSQ', secretAccessKey: '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', region: 'us-west-2'});
-  var s3 = new AWS.S3();
-  var params = {
-    Bucket: 'roadio-datasets',
-    MaxKeys: 1000,
-  };
-  s3.listObjectsV2(params, function(err, data) {
-    if (err) {
-      console.log(err, err.stack); // an error occurred
-    }
-    else {
-      var datasetObjects = data["Contents"];
-      var counter = 1;
-      datasetObjects.forEach(function(element) {
-        var datasetName = element["Key"];
-        var lastModified = element["LastModified"]
-        
-        var row = $("<tr></tr>");
-        var tableID = $("<td></td>").text(counter);
-        var aTag = $("<a></a>").text(datasetName);
-        aTag.attr("href", "https://s3-us-west-2.amazonaws.com/roadio-datasets/" + datasetName);
-        var zip = $("<td></td>").html(aTag);
+function loadHistory() {
+  cart.refreshHistory(function(){
+    let historicalTable = $('#myDatasets');
+    historicalItems = cart.getHistory();
+    var counter = 1;
+    if (historicalItems.size > 0) {
+      console.log('HI');
+      historicalItems.forEach(function(historicalItem){
+        let row = $('<tr id="row-' + historicalItem.split('.')[0] + '"></tr>').appendTo(historicalTable);
+        $('<td>' + counter + '</td>').appendTo(row);
+        $('<td>' + historicalItem + '</td>').appendTo(row);
 
-        var country = "";
-        if (counter == 1) {
-          country = "Austria";
-        } else if (counter == 2) {
-          country = "Belgium";
-        } else if (counter == 3) {
-          country = "China";
-        } else if (counter == 4) {
-          country = "Denmark";
-        }
-
-        var dateCompiled = $("<td></td>").text(lastModified);
-        row.append(tableID, zip, dateCompiled);
-        $('#myDatasets').append(row);
-        counter += 1;
       });
-
-      $("#dataTables-example").DataTable();
-    }     
+    }
   });
 }
 
+console.log(session.getUserID());
+
+$.ajax({
+  url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/getDatasetHistory",
+  data: session.getUserID(),
+  type: "GET",
+  headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+  success: function(result) {
+    console.log(session.getUserID());
+    console.log(result);
+
+    // if (result.datasetHistory !== 'None Purchased') {
+    //   var historyKeys = Object.keys(result.datasetHistory);
+    //   historicalItems = new Set(result.datasetHistory);
+    // }
+    // callback()
+  }
+});

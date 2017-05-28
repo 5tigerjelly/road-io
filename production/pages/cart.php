@@ -68,11 +68,11 @@
                 <li class="dropdown">
                         <p id="spacingNavLinks"><a href="customerDashboard.html" class="NavLinksActions">Dashboard</a></p>
                     </li>
-                    <li class="dropdown">                        
+                    <li class="dropdown">
                         <p id="spacingNavLinks"><a href="purchasedDatasets.html" class="NavLinksActions">Purchased Datasets</a></p>
                 </li>
-                <li class="dropdown">
-                    <a href="customerDashboard.html" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
+                <li class="dropdownNEW">
+                    <a href="cart.html" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
                 </li>
                 <li class="dropdown">
                 </li>
@@ -117,58 +117,10 @@
                                 <th>Name</th>
                                 <th>Price</th>
                                 <th>Date Added</th>
-                                <th></th>
+                                <th>Remove?</th>
                             </tr>
                         </thead>
                         <tbody>
-                      <!--      <tr class="odd gradeX">
-                                <td>somethingElse.zip</td>
-                                <td>$260.99</td>
-                                <td>2017-04-02</td>
-                                <td><i class="fa fa-minus-circle" id="remove"></i></td>
-                            </tr>
-                            <tr class="even gradeC">
-                                <td>somethingElse.zip</td>
-                                <td>$320.99</td>
-                                <td>2016-10-28</td>
-                                <td><i class="fa fa-minus-circle" id="remove"></i></td>
-                            </tr>
-                            <tr class="odd gradeA">
-                                <td>somethingElse.zip</td>
-                                <td>$150.99</td>
-                                <td>2016-10-22</td>
-                                <td><i class="fa fa-minus-circle" id="remove"></i></td>
-                            </tr>
-                            <tr class="even gradeA">
-                                <td>somethingElse.zip</td>
-                                <td>$180.99</td>
-                                <td>2016-07-12</td>
-                                <td><i class="fa fa-minus-circle" id="remove"></i></td>
-                            </tr>
-                            <tr class="odd gradeA">
-                                <td>somethingElse.zip</td>
-                                <td>$420.99</td>
-                                <td>2016-06-05</td>
-                                <td><i class="fa fa-minus-circle" id="remove"></i></td>
-                            </tr>
-                            <tr class="even gradeA">
-                                <td>somethingElse.zip</td>
-                                <td>$260.99</td>
-                                <td>2015-11-31</td>
-                                <td><i class="fa fa-minus-circle" id="remove"></i></td>
-                            </tr>
-                            <tr class="gradeA">
-                                <td>somethingElse.zip</td>
-                                <td>$310.99</td>
-                                <td>2015-10-21</td>
-                                <td><i class="fa fa-minus-circle" id="remove"></i></td>
-                            </tr>
-                            <tr class="gradeA">
-                                <td>somethingElse.zip</td>
-                                <td>$290.99</td>
-                                <td>2015-04-16</td>
-                                <td><i class="fa fa-minus-circle" id="remove"></i></td>
-                            </tr> -->
                         </tbody>
                     </table>
                     <!-- /.table-responsive -->

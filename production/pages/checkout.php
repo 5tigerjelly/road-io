@@ -71,7 +71,7 @@
                     <li class="dropdown">
                         <p id="spacingNavLinks"><a href="purchasedDatasets.html" class="NavLinksActions">Purchased Datasets</a></p>
                 </li>
-                <li class="dropdown">
+                <li class="dropdownNEW">
                     <a href="customerDashboard.html" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
                 </li>
                 <li class="dropdown">
@@ -111,7 +111,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <table width="100%" class="table table-striped" id="dataTables-example">
+                    <table width="100%" class="table table-striped" id="orderCheckout">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -119,43 +119,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd gradeX">
-                                <td>somethingElse.zip</td>
-                                <td class="money">$300.99</td>
-                            </tr>
-                            <tr class="even gradeC">
-                                <td>somethingElse.zip</td>
-                                <td class="money">$100.99</td>
-                            </tr>
-                            <tr class="odd gradeA">
-                                <td>somethingElse.zip</td>
-                                <td class="money">$100.99</td>
-                            </tr>
-                            <tr class="even gradeA">
-                                <td>somethingElse.zip</td>
-                                <td class="money">$100.99</td>
-                            </tr>
-                            <tr class="odd gradeA">
-                                <td>somethingElse.zip</td>
-                                <td class="money">$100.99</td>
-                            </tr>
-                            <tr class="even gradeA">
-                                <td>somethingElse.zip</td>
-                                <td class="money">$100.99</td>
-                            </tr>
-                            <tr class="gradeA">
-                                <td>somethingElse.zip</td>
-                                <td class="money">$100.99</td>
-                            </tr>
-                            <tr class="gradeA">
-                                <td>somethingElse.zip</td>
-                                <td class="money">$100.99</td>
-                            </tr>
                         </tbody>
                     </table>
                     <div style="clear: both">
                         <h1 id="grand">GRAND TOTAL:</h1>
-                        <h1 id="total">$2197.92</h1>
+                        <h1 id="total"></h1>
                     </div>
                     <!-- /.table-responsive -->
                 </div>
@@ -204,6 +172,7 @@
     <script src="../dist/js/sb-admin-2.js"></script>
     <script src="../js/common.js"></script>
     <script src="../js/session.js"></script>
+    <script src="../js/cart.js"></script>
     <script src="../js/checkout.js"></script>
 </body>
 </html>
