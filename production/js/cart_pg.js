@@ -8,7 +8,6 @@ function loadCurrentCart() {
   cart.refreshCart(function(){
     let cartTable = $('#cart-table');
     items = cart.getCart();
-    console.log(items);
     if (items.size > 0) {
       console.log('HI');
       $('#checkout').removeClass('disabled');

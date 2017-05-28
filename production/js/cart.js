@@ -28,7 +28,8 @@ var historicalItems = new Set();
 
         if (result.cart !== 'No such cart') {
           var cartKeys = Object.keys(result.cart);
-          items = new Set(result.cart);
+          console.log(result.cart)
+          items = new Set(cartKeys);
         }
 
         if (items.size > 0) {
@@ -71,11 +72,6 @@ var historicalItems = new Set();
         console.log(session.getUserID());
         console.log(result);
 
-        // if (result.datasetHistory !== 'None Purchased') {
-        //   var historyKeys = Object.keys(result.datasetHistory);
-        //   historicalItems = new Set(result.datasetHistory);
-        // }
-        // callback()
       }
     });
   }

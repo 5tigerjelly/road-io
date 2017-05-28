@@ -17,7 +17,7 @@ function loadDatasets() {
     for (var i = 0; i < result.length; i++) {
       var resultRow = result[i];
       var row = $("<tr></tr>");
-      var tableID = $("<td></td>").text(i);
+      var tableID = $("<td></td>").text(i + 1);
       var datasetName = $("<td></td>").text(resultRow.datasetName);
       var country = $("<td></td>").text(resultRow.country);
       var price = $("<td></td>").text(resultRow.price);
