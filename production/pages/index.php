@@ -75,7 +75,7 @@
         </div>
     </nav>
     <header id="first">
-        <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg" id="video-background">
+        <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="http://privesociety.com/content/uploads/2011/09/highway-traffic-moving-night-city.png" id="video-background">
             <source src="http://road.io.assets.s3-us-west-2.amazonaws.com/captioned+video.mp4" type="video/mp4">
             <track kind="subtitles" srclang="en" label="English" src="subtitle.vtt">
             Your browser does not support the video tag. I suggest you upgrade your browser.
