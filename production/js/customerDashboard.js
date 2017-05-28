@@ -62,19 +62,21 @@ $('#cartInsert').click(function () {
   }).get();
   console.log(items);
 
-  var associatedCountries = $('input:checkbox:checked').map(function() {
-    console.log(this.parentElement.parentElement.childNodes[2].innerText)
-    return this.parentElement.parentElement.childNodes[2].innerText;
+  var associatedPrices = $('input:checkbox:checked').map(function() {
+    console.log(this.parentElement.parentElement.childNodes[3].innerText)
+    return this.parentElement.parentElement.childNodes[3].innerText;
   }).get();
-  console.log(associatedCountries);
 
   var associativeArray = {};
   var tempCart = Array.from(CART)
+  tempCart.forEach((tempCartItem, i) => associativeArray[tempCartItem] = associatedPrices[i]);
 
-  for (var i = 0; i < tempCart.length; i++) {
-    console.log(tempCart[i]);
-    associativeArray["" + tempCart[i]] = "US";
-  }
+  console.log(associativeArray)
+
+  // for (var i = 0; i < tempCart.length; i++) {
+  //   console.log(tempCart[i]);
+  //   associativeArray["" + tempCart[i]] = "US";
+  // }
 
   cart.addItems(associativeArray);  // associativeArray
 
