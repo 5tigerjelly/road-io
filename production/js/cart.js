@@ -3,6 +3,20 @@ var cart = (function(){
 var items = new Set();
 var historicalItems = new Set();
 
+
+  function getAllDatasets(callback) {
+    $.ajax({
+      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/getDatasetCountry",
+      data: session.getUserID(),
+      type: "GET",
+      headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+      success: function(result) {
+        console.log(result);
+        callback()
+      }
+    });
+  }
+
   function refreshCart(callback) {
     $.ajax({
       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
@@ -11,13 +25,11 @@ var historicalItems = new Set();
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
 
-        console.log(result);
+        // console.log(result);
 
         if (result.cart !== 'No such cart') {
           var cartKeys = Object.keys(result.cart);
           items = new Set(result.cart);
-          // console.log("NEW ITEMS");
-          // console.log(items);
         }
 
         if (items.size > 0) {
@@ -99,6 +111,7 @@ var historicalItems = new Set();
   }
 
   return {
+    getAllDatasets : getAllDatasets,
     refreshCart : refreshCart,
     getCart : getCart,
     refreshHistory: refreshHistory,

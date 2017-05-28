@@ -9,6 +9,7 @@ var session = (function(){
   var cognitoUser = undefined;
   var phone = "";
   var local = "";
+  var businessName = "";
   var poolData = {
       UserPoolId : 'us-west-2_dEcrjTcVl',
       ClientId : '2kkhe3k563aocuioe4sklhokg4'
@@ -22,7 +23,6 @@ var session = (function(){
             alert(err);
             return;
         }
-        //console.log(cognitoUser);
         idToken = session.idToken.jwtToken;
         email = cognitoUser.username;
         cognitoUser.getUserAttributes(function(err, result) {
@@ -35,6 +35,10 @@ var session = (function(){
           type = result[1].getValue() == 'driver' ? DRIVER : CAR_COMPANY;
           phone = result[3].getValue();
           local = result[5].getValue();
+          if (type == CAR_COMPANY) {
+              businessName = result[4].getValue();
+          }
+          $("#companyName").text(businessName);
           $("#userProfileLink").html(prefUserName + "'s profile");
           AWS.config.update({
             credentials: new AWS.CognitoIdentityCredentials({
@@ -56,7 +60,7 @@ var session = (function(){
               identityID = AWS.config.credentials.identityId;
              $("#userProfileLink").html(prefUserName + "'s profile");
              $('#signout').click(function(){
-               cognitoUser.signOut();
+               logOut();
                window.location.replace("login.html");
              });
               callback({loggedIn: true});
@@ -99,11 +103,11 @@ var session = (function(){
   function getLocal() {
     return local;
   }
-  
+
   function changePassword(oldPass, newPass, callback){
     cognitoUser.changePassword(oldPass, newPass, callback);
   }
-  
+
   function deleteAccount(callback){
     cognitoUser.deleteUser(callback);
   }

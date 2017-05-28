@@ -61,7 +61,7 @@ document.getElementById('customButton').addEventListener('click', function(e) {
     name: 'Road.io',
     description: 'Payment Confirmation',
     zipCode: true,
-    amount: amount
+    amount: amount,
   });
   e.preventDefault();
 });

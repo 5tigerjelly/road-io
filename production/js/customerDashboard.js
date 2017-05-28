@@ -5,7 +5,8 @@ var CART = new Set();
 $(function() {
    session.checkSession(function(result) {
      console.log(session.getUserID());
-     carCompanyRedirect(result, getDatasets);
+     //carCompanyRedirect(result, getDatasets);
+     cart.getAllDatasets();
   });
 });
 
