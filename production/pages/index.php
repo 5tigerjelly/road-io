@@ -65,10 +65,10 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a title="Create an Account with Us!" href="../pages/signup.html">Sign Up</a>
+                        <a title="Create an Account with Us!" href="signup.php">Sign Up</a>
                     </li>
                     <li>
-                        <a title="Welcome Back!" href="../pages/login.html">Login</a>
+                        <a title="Welcome Back!" href="login.php">Login</a>
                     </li>
                 </ul>
             </div>
@@ -217,7 +217,7 @@
             <div id="mapid" style="width: 1150px; height: 600px; position: relative; outline: none;" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
                     <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-20px, 29px, 0px);">
                         <div class="leaflet-pane leaflet-tile-pane">
-                            <div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 17; transform: translate3d(239px, 106px, 0px) scale(0.5);">    
+                            <div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 17; transform: translate3d(239px, 106px, 0px) scale(0.5);">
                             </div>
                             <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(239px, 105px, 0px) scale(1);">
                             <img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/12/2046/1361.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-100px, -173px, 0px); opacity: 1;">
@@ -240,7 +240,7 @@
                 </svg>
             </div>
             <div class="leaflet-pane leaflet-marker-pane">
-                <img src="https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(389px, 229px, 0px); z-index: 229;"></div><div class="leaflet-pane leaflet-tooltip-pane">                       
+                <img src="https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(389px, 229px, 0px); z-index: 229;"></div><div class="leaflet-pane leaflet-tooltip-pane">
                     </div>
             <div class="leaflet-pane leaflet-popup-pane"></div>
                 <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(523957px, 348655px, 0px) scale(2048);">
@@ -280,7 +280,7 @@
             -->
             <div class="call-to-action">
                 <h2 class="text-primary">Get Started</h2>
-                <a href="../pages/signup.html" class="btn btn-default btn-lg wow flipInX">Sign Up</a>
+                <a href="signup.php" class="btn btn-default btn-lg wow flipInX">Sign Up</a>
             </div>
         </div>
     </aside>
