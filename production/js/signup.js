@@ -2,7 +2,7 @@
 'use strict';
 
 $(function() {
-    $('nav').load('nav.html');
+    $('nav').load('nav.php');
     session.checkSession(function(result) {
         if (result.loggedIn) {
             if (session.getType() == "driver") {
