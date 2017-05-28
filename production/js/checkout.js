@@ -4,7 +4,7 @@ $(function() {
   session.checkSession(function(result) {
      carCompanyRedirect(result, loadCheckout);
   });
-  calculateGrandTotal()
+
 });
 
 function loadCheckout() {
@@ -17,10 +17,11 @@ function loadCheckout() {
         let row = $('<tr id="row-' + checkoutItem.split('.')[0] + '"></tr>').appendTo(checkoutTable);
         $('<td>' + checkoutItem + '</td>').appendTo(row);
         $('<td class="money">' + '$300.99' + '</td>').appendTo(row);
+
       });
     }
+    calculateGrandTotal();
   });
-  // callback()
 }
 
 // Call this after entire table loads
@@ -28,7 +29,6 @@ function calculateGrandTotal() {
   var total = 0.0;
   $('.money').each(function() {
     var stringValue = this.innerHTML;
-    console.log(stringValue);
     var numberValue = parseFloat(stringValue.substring(1, stringValue.length));
     total += numberValue;
   });
@@ -65,8 +65,6 @@ document.getElementById('customButton').addEventListener('click', function(e) {
   });
   e.preventDefault();
 });
-
-
 
 // Close Checkout on page navigation:
 window.addEventListener('popstate', function() {

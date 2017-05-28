@@ -88,15 +88,15 @@ function getDatasets() {
               }).get();
               console.log(associatedCountries);
 
-              var associativeArray = new Object();
-              for(var i=0;i<3;i++){
-                associativeArray[CART[i]] = associatedCountries[i];
+              var associativeArray = {};
+              var tempCart = Array.from(CART)
+
+              for (var i = 0; i < tempCart.length; i++) {
+                console.log(tempCart[i]);
+                associativeArray["" + tempCart[i]] = "US";
               }
-              // if (associativeArray.hasOwnProperty('undefined')) {
-              //   delete associativeArray["undefined"];
-              // }
-              //console.log(associativeArray);
-              cart.addItems(Array.from(CART));
+
+              cart.addItems(associativeArray);  // associativeArray
 
               items.forEach(function(item){
                 $('#' + item.split('.')[0] + '-cb').html('<i class="glyphicon glyphicon-ok">');

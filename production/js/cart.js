@@ -11,6 +11,8 @@ var historicalItems = new Set();
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
 
+        console.log(result);
+
         if (result.cart !== 'No such cart') {
           var cartKeys = Object.keys(result.cart);
           items = new Set(result.cart);
