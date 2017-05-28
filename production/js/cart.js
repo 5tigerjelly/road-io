@@ -4,15 +4,14 @@ var items = new Set();
 var historicalItems = new Set();
 
 
-  function getAllDatasets(callback) {
+  function refreshDatasets(callback) {
     $.ajax({
       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/getDatasetCountry",
       data: session.getUserID(),
       type: "GET",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
-        console.log(result);
-        callback()
+        callback(result)
       }
     });
   }
@@ -54,8 +53,8 @@ var historicalItems = new Set();
       type: "POST",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
-        console.log(result);
-        itemsToAdd.forEach(function(item){
+        var itemsToAddDataSet = Object.keys(itemsToAdd);
+        itemsToAddDataSet.forEach(function(item){
           items.add(item);
         });
       }
@@ -111,7 +110,7 @@ var historicalItems = new Set();
   }
 
   return {
-    getAllDatasets : getAllDatasets,
+    refreshDatasets : refreshDatasets,
     refreshCart : refreshCart,
     getCart : getCart,
     refreshHistory: refreshHistory,
