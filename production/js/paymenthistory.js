@@ -3,7 +3,7 @@
 
 $(function() {
   session.checkSession(function(result){
-    driverRedirect(result, populateData);
+    driverRedirect(result, start);
   });
 });
 

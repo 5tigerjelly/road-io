@@ -61,7 +61,7 @@ var session = (function(){
              $("#userProfileLink").html(prefUserName + "'s profile");
              $('#signout').click(function(){
                logOut();
-               window.location.replace("login.html");
+               window.location.replace("login.php");
              });
               callback({loggedIn: true});
              }

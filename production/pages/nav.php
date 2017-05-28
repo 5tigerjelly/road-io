@@ -1,4 +1,5 @@
     <!-- Navigation -->
+    <nav class="navbar  navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -6,19 +7,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="customerDashboard.html" id="brand"><i class="fa fa-car fa-fw" id="auto" style="margin-right: 6px;"></i>Road.io</a>
+            <a class="navbar-brand" href="customerDashboard.php" id="brand"><i class="fa fa-car fa-fw" id="auto" style="margin-right: 6px;"></i>Road.io</a>
         </div>
         <!-- /.navbar-header -->
 
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
-                    <p id="spacingNavLinks"><a href="dashboard.html" class="NavLinksActions">Your Dashboard</a></p>
+                    <p id="spacingNavLinks"><a href="dashboard.php" class="NavLinksActions">Your Dashboard</a></p>
             </li>
             <li class="dropdown">
-                <p id="spacingNavLinks"><a href="upload.html" class="NavLinksActions">Upload Videos</a></p>
+                <p id="spacingNavLinks"><a href="upload.php" class="NavLinksActions">Upload Videos</a></p>
             </li>
             <li class="dropdown">
-                <p id="spacingNavLinks"><a href="payment_history.html" class="NavLinksActions">Payment History</a></p>
+                <p id="spacingNavLinks"><a href="payment_history.php" class="NavLinksActions">Payment History</a></p>
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -39,4 +40,4 @@
                 </ul>
             </li>
         </ul>
-
+  </nav>

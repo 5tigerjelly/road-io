@@ -31,4 +31,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="../css/<?=$css?>" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="../resources/favicon.ico" />
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  </script>
+
 </head>

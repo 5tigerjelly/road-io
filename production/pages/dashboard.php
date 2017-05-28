@@ -95,6 +95,8 @@ include_once('head.php'); ?>
 </div>
 
 <?php include('common_dependencies.php');?>
+<script src="../js/dashboard.js"></script>
+
 </body>
 
 </html>

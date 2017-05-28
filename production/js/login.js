@@ -4,10 +4,10 @@ window.onload = function() {
   session.checkSession(function(result){
     if(result.loggedIn){
       if(session.getType() == "driver"){
-        window.location.replace("dashboard.html");
+        window.location.replace("dashboard.php");
       }
       else{
-        window.location.replace("customerDashboard.html");
+        window.location.replace("customerDashboard.php");
       }
     }
     else{
@@ -48,40 +48,19 @@ function login(){
             console.log(result);
 
           if (attr[1].getValue() == 'driver') {
-            window.location.replace("dashboard.html")
+            window.location.replace("dashboard.php")
             var decoded = jwt_decode(result.getAccessToken().getJwtToken());
             console.log(decoded);
             console.log('access token + ' + result.getAccessToken().getJwtToken());
           } else {
-            window.location.replace("customerDashboard.html")
+            window.location.replace("customerDashboard.php")
           }
-          // if (err) {
-          //   alert(err);
-          //   return;
-          // }
-          // for (i = 0; i < result.length; i++) {
-          //   console.log('attribute Number' + i + ", with Name: " + result[i].getName() + ' has value ' + result[i].getValue());
-          // }
-        });
-
-
-
-          // AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-          //     IdentityPoolId : '...', // your identity pool id here
-          //     Logins : {
-          //         // Change the key below according to the specific region your user pool is in.
-          //         'cognito-idp.us-west-2.amazonaws.com/us-west-2_dEcrjTcVl' : result.getIdToken().getJwtToken()
-          //     }
-          // });
-
-          // Instantiate aws sdk service objects now that the credentials have been updated.
-          // example: var s3 = new AWS.S3();
-
       },
 
       onFailure: function(err) {
           alert(err);
-      },
+      }
 
-  });
-};
+    });
+  };
+}
