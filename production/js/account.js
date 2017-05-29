@@ -2,7 +2,12 @@
 
 $(function() {
   session.checkSession(function(result){
-    driverRedirect(result, populateData);
+    if(document.location.href.match(/[^\/]+$/)[0] == 'account_driver.php'){
+      driverRedirect(result, populateData);
+    }
+    else{
+      carCompanyRedirect(result, populateData);
+    }
   });
 });
 

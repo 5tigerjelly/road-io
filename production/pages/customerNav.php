@@ -29,7 +29,7 @@
                 <i class="fa fa-user fa-fw" id="account"></i> <i class="fa fa-caret-down" id="caretDown"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-id-card" id="iconsInMenu"></i></a> <p id="companyName">Ford Motors</p>
+                <li><p id="companyName">Ford Motors</p>
                 <li class="divider"></li>
                 </li>
                 <li><a href="#"><i class="fa fa-gear fa-fw" id="iconsInMenu"></i>Account Settings</a>

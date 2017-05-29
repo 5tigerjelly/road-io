@@ -38,7 +38,6 @@ var session = (function(){
           local = result[5].getValue();
           if (type == CAR_COMPANY) {
               businessName = result[4].getValue();
-              $("#iconsInMenu").text("" + result[5].getValue() + "'s profile");
           }
           $("#companyName").text(businessName);
           $("#userProfileLink").html(prefUserName + "'s profile");
@@ -65,6 +64,23 @@ var session = (function(){
                logOut();
                window.location.replace("login.php");
              });
+             $('#settings').click(function(){
+               if(type == DRIVER){
+                 window.location.replace("account_driver.php");
+               }
+               else{
+                 window.location.replace("account_cc.php");
+               }
+             });
+             $('.dash').click(function(){
+               if(type == DRIVER){
+                 window.location.replace("dashboard.php");
+               }
+               else{
+                 window.location.replace("customerDashboard.php");
+               }
+              });
+              $('[data-toggle="tooltip"]').tooltip();
               callback({loggedIn: true});
              }
           });
