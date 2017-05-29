@@ -30,6 +30,7 @@ var session = (function(){
               alert(err);
               return;
           }
+          console.log(result)
           prefUserName = result[4].getValue();
           sub = result[0].getValue();
           type = result[1].getValue() == 'driver' ? DRIVER : CAR_COMPANY;
@@ -37,6 +38,7 @@ var session = (function(){
           local = result[5].getValue();
           if (type == CAR_COMPANY) {
               businessName = result[4].getValue();
+              $("#iconsInMenu").text("" + result[5].getValue() + "'s profile");
           }
           $("#companyName").text(businessName);
           $("#userProfileLink").html(prefUserName + "'s profile");
