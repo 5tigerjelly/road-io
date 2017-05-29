@@ -18,7 +18,7 @@
             <li class="dropdown">
                 <p id="spacingNavLinks"><a href="purchasedDatasets.php" class="NavLinksActions">Purchased Datasets</a></p>
         </li>
-        <li class="dropdown">
+        <li class="dropdownNEW">
             <a href="cart.php" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
         </li>
         <li class="dropdown">
