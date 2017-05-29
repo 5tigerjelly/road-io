@@ -63,6 +63,23 @@ var session = (function(){
                logOut();
                window.location.replace("login.php");
              });
+             $('#settings').click(function(){
+               if(type == DRIVER){
+                 window.location.replace("account_driver.php");
+               }
+               else{
+                 window.location.replace("account_cc.php");
+               }
+             });
+             $('.dash').click(function(){
+               if(type == DRIVER){
+                 window.location.replace("dashboard.php");
+               }
+               else{
+                 window.location.replace("customerDashboard.php");
+               }
+              });
+              $('[data-toggle="tooltip"]').tooltip();    
               callback({loggedIn: true});
              }
           });

@@ -1,6 +1,6 @@
 <?php 
 $title = "Road.io &mdash; Account";
-$css = "dashboard.css";
+$css = "customerDashboard.css";
 include_once('head.php'); ?>
 	<body>
 	<?php include('customerNav.php'); ?>	
