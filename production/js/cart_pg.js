@@ -36,5 +36,5 @@ function loadCurrentCart() {
 }
 
 $('#checkout').click(function() {
-  window.location.replace("checkout.html")
+  window.location.replace("checkout.php")
 });

@@ -3,7 +3,6 @@ let cart = (function(){
 
   var items = new Set();
   var prices = new Array();
-  var historicalItems = new Set();
 
   function refreshCart(callback) {
     $.ajax({
@@ -54,25 +53,6 @@ let cart = (function(){
     });
   }
 
-  function refreshHistory(callback) {
-    $.ajax({
-      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/getDatasetHistory",
-      data: session.getUserID(),
-      type: "GET",
-      headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-      success: function(result) {
-        console.log(session.getUserID());
-        console.log(result);
-
-      }
-    });
-  }
-
-  function getHistory(){
-    return historicalItems;
-  }
-
-
   function removeItem(item){
     $.ajax({
       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
@@ -80,6 +60,7 @@ let cart = (function(){
       type: "DELETE",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
+        console.log(result);
         items.delete(item);
       }
     });
@@ -100,8 +81,6 @@ let cart = (function(){
   return {
     refreshCart : refreshCart,
     getCart : getCart,
-    refreshHistory: refreshHistory,
-    getHistory: getHistory,
     removeItem : removeItem,
     addItems : addItems,
     processCart : processCart,

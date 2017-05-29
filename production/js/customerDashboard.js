@@ -1,6 +1,6 @@
 'use strict';
 
-var CART = new Set();
+var currentItems = new Set();
 
 $(function() {
    session.checkSession(function(result) {
@@ -46,29 +46,32 @@ function populateTable(result){
   $("#datasetsTable").DataTable();
   });
 }
-/*
+
 $('#datasetsTable').on('click', 'input[type="checkbox"]', function(data) {
   var dataValue = data.currentTarget.value;
   // add
   if(data.currentTarget.checked) {
-    CART.add(dataValue);
+    currentItems.add(dataValue);
   //remove
   } else {
-    CART.delete("" + dataValue);
+    currentItems.delete("" + dataValue);
   }
 
   // #enabling
-  if (CART.size > 0) {
+  if (currentItems.size > 0) {
     $('#cartInsert').removeClass('disabled');
   // #disabling
   } else {
     $('#cartInsert').addClass('disabled');
   }
-  console.log(CART);
+  console.log(currentItems);
 });
-*/
+
 
 $('#cartInsert').click(function () {
+  if($('#cartInsert').hasClass("disabled")){
+    return;
+  }
   var items = $('input:checkbox:checked').map(function() {
     console.log(this.value);
     return this.value;
@@ -81,21 +84,19 @@ $('#cartInsert').click(function () {
   }).get();
 
   var associativeArray = {};
-  var tempCart = Array.from(CART)
+  var tempCart = Array.from(currentItems)
   tempCart.forEach((tempCartItem, i) => associativeArray[tempCartItem] = associatedPrices[i]);
 
   console.log(associativeArray)
-
-  // for (var i = 0; i < tempCart.length; i++) {
-  //   console.log(tempCart[i]);
-  //   associativeArray["" + tempCart[i]] = "US";
-  // }
 
   cart.addItems(associativeArray);  // associativeArray
 
   items.forEach(function(item){
     $('#' + item.split('.')[0] + '-cb').html('<i class="glyphicon glyphicon-ok">');
   });
+  
+  currentItems = new Set();
+  $('#cartInsert').addClass('disabled');
 
   cart.refreshCart(function() {
     console.log('DONE')
