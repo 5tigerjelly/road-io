@@ -32,7 +32,7 @@
                 <li><p id="companyName">Ford Motors</p>
                 <li class="divider"></li>
                 </li>
-                <li><a href="#"><i class="fa fa-gear fa-fw" id="iconsInMenu"></i>Account Settings</a>
+                <li><a id="settings" href="#"><i class="fa fa-gear fa-fw" id="iconsInMenu"></i>Account Settings</a>
                 </li>
                 <li><a href="https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_Ak2Y15gklfyz7VraFlZE06yXC84WVAUA&scope=read_write"><i class="fa fa-usd fa-fw" id="iconsInMenu"></i>Payment Settings</a>
                 </li>

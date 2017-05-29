@@ -31,16 +31,20 @@ var session = (function(){
               return;
           }
           console.log(result)
-          prefUserName = result[4].getValue();
           sub = result[0].getValue();
           type = result[1].getValue() == 'driver' ? DRIVER : CAR_COMPANY;
           phone = result[3].getValue();
-          local = result[5].getValue();
           if (type == CAR_COMPANY) {
               businessName = result[4].getValue();
+              prefUserName = result[5].getValue();
+              local = result[6].getValue();
           }
+          else {
+            prefUserName = result[4].getValue();
+            local = result[5].getValue();
+          }
+
           $("#companyName").text(businessName);
-          $("#userProfileLink").html(prefUserName + "'s profile");
           AWS.config.update({
             credentials: new AWS.CognitoIdentityCredentials({
               IdentityPoolId: 'us-west-2:88b13c2b-9ce8-4370-8071-13f8cd379e01'
@@ -59,7 +63,7 @@ var session = (function(){
             }
             else {
               identityID = AWS.config.credentials.identityId;
-             $("#userProfileLink").html(prefUserName + "'s profile");
+             $("#settings").html('<i class="fa fa-gear fa-fw" id="iconsInMenu"></i>' + prefUserName + "'s profile");
              $('#signout').click(function(){
                logOut();
                window.location.replace("login.php");
