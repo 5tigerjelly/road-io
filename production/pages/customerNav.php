@@ -15,7 +15,7 @@
                 <li class="dropdown">
                         <p id="spacingNavLinks"><a href="#" class="dash NavLinksActions">Dashboard</a></p>
                     </li>
-                    <li class="dropdown">                        
+                    <li class="dropdown">
                         <p id="spacingNavLinks"><a href="purchasedDatasets.php" class="NavLinksActions">Purchased Datasets</a></p>
                 </li>
                 <li class="dropdown">
@@ -34,7 +34,7 @@
                         <li class="divider"></li>
                         <li><a id="settings" href="#"><i class="fa fa-id-card" id="iconsInMenu"></i>Account Settings</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-usd fa-fw" id="iconsInMenu"></i>Payment Settings</a>
+                        <li><a href="https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_Ak2Y15gklfyz7VraFlZE06yXC84WVAUA&scope=read_write"><i class="fa fa-usd fa-fw" id="iconsInMenu"></i>Payment Settings</a>
                         </li>
                         <li><a href="#" data-toggle="tooltip" data-placement="left" title="Feature not availible"><i class="fa fa-question-circle-o fa-fw" id="iconsInMenu"></i>Help &amp Support</a>
                         </li>
@@ -48,4 +48,3 @@
             </ul>
             <!-- /.navbar-top-links -->
         </nav>
-
