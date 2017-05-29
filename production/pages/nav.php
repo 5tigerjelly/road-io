@@ -30,7 +30,7 @@
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw" id="iconsInMenu"></i>Account Settings</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-usd fa-fw" id="iconsInMenu"></i>Payment Settings</a>
+                    <li><a href="https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_Ak2Y15gklfyz7VraFlZE06yXC84WVAUA&scope=read_write"><i class="fa fa-usd fa-fw" id="iconsInMenu"></i>Payment Settings</a>
                     </li>
                     <li><a href="#"><i class="fa fa-question-circle-o fa-fw" id="iconsInMenu"></i>Help &amp Support</a>
                     </li>
