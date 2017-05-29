@@ -1,21 +1,9 @@
 'use strict';
-var cart = (function(){
-var items = new Set();
-var prices = new Array();
-var historicalItems = new Set();
+let cart = (function(){
 
-
-  function refreshDatasets(callback) {
-    $.ajax({
-      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/getDatasetCountry",
-      data: session.getUserID(),
-      type: "GET",
-      headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-      success: function(result) {
-        callback(result)
-      }
-    });
-  }
+  var items = new Set();
+  var prices = new Array();
+  var historicalItems = new Set();
 
   function refreshCart(callback) {
     $.ajax({
@@ -24,15 +12,11 @@ var historicalItems = new Set();
       type: "GET",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
-
-        // console.log(result);
-
         if (result.cart !== 'No such cart') {
           var cartKeys = Object.keys(result.cart);
           prices = cartKeys.map(function(key) {
               return result.cart[key];
           });
-          console.log(prices)
           items = new Set(cartKeys);
         }
 
@@ -114,7 +98,6 @@ var historicalItems = new Set();
   }
 
   return {
-    refreshDatasets : refreshDatasets,
     refreshCart : refreshCart,
     getCart : getCart,
     refreshHistory: refreshHistory,

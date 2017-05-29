@@ -10,30 +10,43 @@ $(function() {
 });
 
 function loadDatasets() {
-  var tbl = $('#AllDatasets');
-  cart.refreshDatasets(function(result){
-    let cartTable = $('#cart-table');
-    var items = cart.getCart();
-    for (var i = 0; i < result.length; i++) {
-      var resultRow = result[i];
-      var row = $("<tr></tr>");
-      var tableID = $("<td></td>").text(i + 1);
-      var datasetName = $("<td></td>").text(resultRow.datasetName);
-      var country = $("<td></td>").text(resultRow.country);
-      var price = $("<td></td>").text(resultRow.price);
-      var dateAdded = $("<td></td>").text(resultRow.dateAdded);
-      var checkbox = $("<input class='checkbox_check' type='checkbox' name='added' value=" + resultRow.datasetName + ">")
-      if(items.has(datasetName)){
-        checkbox = '<i class="glyphicon glyphicon-ok">';
+    $.ajax({
+      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/getDatasetCountry",
+      data: session.getUserID(),
+      type: "GET",
+      headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
+      success: function(result) {
+        populateTable(result)
       }
-      var checkboxData = $("<td id=\"" + resultRow.datasetName.split('.')[0] + "-cb\" align='center'></td>").html(checkbox);
-      row.append(tableID, datasetName, country, price, dateAdded, checkboxData);
-      tbl.append(row);
-    }
-    $("#datasetsTable").DataTable();
-  });
+    });
 }
 
+function populateTable(result){
+  var tbl = $('#AllDatasets');
+  cart.refreshCart(function(){
+  var items = cart.getCart(); 
+  console.log(items);
+  for (var i = 0; i < result.length; i++) {
+    var resultRow = result[i];
+    var row = $("<tr></tr>");
+    var tableID = $("<td></td>").text(i + 1);
+    var datasetName = $("<td></td>").text(resultRow.datasetName);
+    var country = $("<td></td>").text(resultRow.country);
+    var price = $("<td></td>").text(resultRow.price);
+    var dateAdded = $("<td></td>").text(resultRow.dateAdded);
+    var checkbox = $("<input class='checkbox_check' type='checkbox' name='added' value=" + resultRow.datasetName + ">")
+    console.log(resultRow.datasetName);
+    if(items.has(resultRow.datasetName)){
+      checkbox = '<i class="glyphicon glyphicon-ok">';
+    }
+    var checkboxData = $("<td id=\"" + resultRow.datasetName.split('.')[0] + "-cb\" align='center'></td>").html(checkbox);
+    row.append(tableID, datasetName, country, price, dateAdded, checkboxData);
+    tbl.append(row);
+  }
+  $("#datasetsTable").DataTable();
+  });
+}
+/*
 $('#datasetsTable').on('click', 'input[type="checkbox"]', function(data) {
   var dataValue = data.currentTarget.value;
   // add
@@ -53,7 +66,7 @@ $('#datasetsTable').on('click', 'input[type="checkbox"]', function(data) {
   }
   console.log(CART);
 });
-
+*/
 
 $('#cartInsert').click(function () {
   var items = $('input:checkbox:checked').map(function() {
