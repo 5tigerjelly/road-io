@@ -19,7 +19,19 @@
                 <p id="spacingNavLinks"><a href="purchasedDatasets.php" class="NavLinksActions">Purchased Datasets</a></p>
         </li>
         <li class="dropdownNEW">
-            <a href="cart.php" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
+            <a href="cart.php" class="NavLinksActions">
+              <i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i>
+              <svg id ="cartCount" class="theSVG" width="27" height="27">
+                <g class="point" transform="translate(13,13)">
+                  <circle></circle>
+                  <text class="pointIndex" y="5">
+                    <tspan id="cartCountText" text-anchor="middle">
+                      0
+                    </tspan>
+                  </text>
+                </g>
+              </svg>
+            </a>
         </li>
         <li class="dropdown">
         </li>
@@ -31,21 +43,6 @@
             <ul class="dropdown-menu dropdown-user">
                 <li><p id="companyName">Ford Motors</p>
                 <li class="divider"></li>
-                <li class="dropdown">
-                    <a href="cart.php" class="NavLinksActions">
-                      <i class="fa fa-shopping-cart" aria-hidden="true" id="cart">
-                      </i>
-                      <svg id ="cartCount" class="theSVG" width="27" height="27">
-                        <g class="point" transform="translate(13,13)">
-                          <circle></circle>
-                          <text class="pointIndex" y="5">
-                            <tspan id="cartCountText" text-anchor="middle">
-                              0
-                            </tspan>
-                          </text>
-                        </g>
-                      </svg>
-                    </a>
                 <li><a id="settings" href="#"><i class="fa fa-gear fa-fw" id="iconsInMenu"></i>Account Settings</a>
                 </li>
                 <li><a href="https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_Ak2Y15gklfyz7VraFlZE06yXC84WVAUA&scope=read_write"><i class="fa fa-usd fa-fw" id="iconsInMenu"></i>Payment Settings</a>
