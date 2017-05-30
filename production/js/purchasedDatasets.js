@@ -22,8 +22,10 @@ $.ajax({
         let row = $('<tr id="row-' + historicalItem.split('.')[0] + '"></tr>').appendTo(historicalTable);
         $('<td>' + counter + '</td>').appendTo(row);
         $('<td>' + historicalItem + '</td>').appendTo(row);
-
       });
+    } else {
+      $('#tableDiv').css('display','none');
+      $('#displayNone').append("<h3>You haven't made any purchases!</h3>")
     }
   }
 });
@@ -32,4 +34,3 @@ $.ajax({
 }
 
 console.log(session.getUserID());
-
