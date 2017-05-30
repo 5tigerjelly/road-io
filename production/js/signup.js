@@ -16,6 +16,12 @@ $(function() {
                     signup.signup();
                 }
             };
+            $("#signupSubmit").submit(function(event){
+              event.preventDefault();
+              if (isAllFormFilled()) {
+                  signup.signup();
+              }
+            });
             document.getElementById("check_corporate").onchange = function() {
                 signup.showhidden()
             };
