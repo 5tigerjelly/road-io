@@ -4,6 +4,15 @@ let cart = (function(){
   var items = new Set();
   var prices = new Array();
 
+  function convertCartFormat (cart){
+    var cartKeys = Object.keys(cart);
+    prices = cartKeys.map(function(key) {
+        return cart[key];
+    });
+    var ret_items = new Set(cartKeys);
+    return ret_items;
+  }
+
   function refreshCart(callback) {
     $.ajax({
       url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/cart",
@@ -12,20 +21,10 @@ let cart = (function(){
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
         if (result.cart !== 'No such cart') {
-          var cartKeys = Object.keys(result.cart);
-          prices = cartKeys.map(function(key) {
-              return result.cart[key];
-          });
-          items = new Set(cartKeys);
+          items = convertCartFormat(result.cart);
         }
-
-        if (items.size > 0) {
-          var circleText = $('<svg class="theSVG" width="27" height="27"><g class="point" transform="translate(13,13)"><circle></circle><text class="pointIndex" y="5"><tspan text-anchor="middle">' + items.size + '</tspan></text></g></svg>')
-          $('#cart').parent().append(circleText);
-          // console.log(items.size)
-        }
-
-        callback()
+        $("#cartCountText").text(items.size);
+        callback();
       }
     });
   }
@@ -48,6 +47,9 @@ let cart = (function(){
         var itemsToAddDataSet = Object.keys(itemsToAdd);
         itemsToAddDataSet.forEach(function(item){
           items.add(item);
+          refreshCart(function() {
+              console.log('DONE')
+          });
         });
       }
     });
@@ -60,8 +62,10 @@ let cart = (function(){
       type: "DELETE",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
-        console.log(result);
         items.delete(item);
+        refreshCart(function() {
+            console.log('DONE')
+        });
       }
     });
   }
@@ -73,7 +77,6 @@ let cart = (function(){
       type: "GET",
       headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
       success: function(result) {
-        console.log(result);
       }
     });
   }
