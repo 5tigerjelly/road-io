@@ -46,7 +46,7 @@
                         <h3 class="panel-title">Sign Up</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form id="signupSubmit" role="form">
                             <fieldset>
                                 <div class="form-group" id="email_form_group">
                                   <label for="email">Email</label>
@@ -100,7 +100,7 @@
                                 </div>
 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a id="submit_signup" class="btn btn-lg btn-primary btn-block">Sign Up</a>
+                                <input type="submit" value="Sign Up" id="submit_signup" class="btn btn-lg btn-primary btn-block"></input>
                             </fieldset>
                         </form>
                     </div>

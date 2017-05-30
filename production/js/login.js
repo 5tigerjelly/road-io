@@ -9,7 +9,11 @@ window.onload = function() {
             }
         } else {
             $("#submit_login").click(function() {
-                login()
+                login();
+            });
+            $("#loginSubmit").submit(function(event){
+              event.preventDefault();
+              login();
             });
         }
     });

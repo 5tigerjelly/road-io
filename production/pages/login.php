@@ -55,7 +55,7 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form id="loginSubmit" role="form">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" id="email" name="email" type="email" autofocus>
@@ -66,7 +66,7 @@
 
                                 <!-- Change this to a button or input when using this as a form -->
                                 <div class="form-group">
-                                  <a id="submit_login" class="btn btn-lg btn-success btn-block">Login</a>
+                                  <input type="submit" value="Login" id="submit_login" class="btn btn-lg btn-success btn-block"></input>
                                 </div>
                             </fieldset>
                         </form>
