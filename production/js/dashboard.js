@@ -1,45 +1,71 @@
 'use strict';
 
+var LOADCOUNTER = 0
+
 $(function() {
   session.checkSession(function(result){
     driverRedirect(result, populateData);
   });
 });
 
+function removeLoading(){
+  if (LOADCOUNTER == 4) {
+    $("#loadingDiv").hide();
+    $("#toLoad").css('visibility', 'visible');
+  }
+}
+
+
 function populateData() {
   $.ajax({
     url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?type=total",
     type: "GET",
     headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-    success: function(result) { $('#totalAmount').html("$" + result.totalAmount.toFixed(2)); }
+    success: function(result) {
+      $('#totalAmount').html("$" + result.totalAmount.toFixed(2));
+      LOADCOUNTER += 1;
+      removeLoading();
+    }
   });
 
   $.ajax({
     url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/videos?request=totalHours",
     type: "GET",
     headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-    success: function(result) { $('#totalHours').html(result.totalHours + " hours"); }
+    success: function(result) {
+      $('#totalHours').html(result.totalHours + " hours");
+      LOADCOUNTER += 1;
+      removeLoading();
+    }
   });
 
   $.ajax({
     url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/videos?request=streak",
     type: "GET",
     headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-    success: function(result) { $('#longestStreak').html(result.longestStreak + " days"); }
+    success: function(result) {
+      $('#longestStreak').html(result.longestStreak + " days");
+      LOADCOUNTER += 1;
+      removeLoading();
+    }
   });
 
   $.ajax({
      url: "https://sejeqwt9og.execute-api.us-west-2.amazonaws.com/Dev/driver-payments?year=2017",
      type: "GET",
      headers: {"Authorization": session.getToken(), "Content-Type": "application/json"},
-     success: function(result) { populateChart(result.payments); }
-  }); 
+     success: function(result) {
+       populateChart(result.payments);
+       LOADCOUNTER += 1;
+       removeLoading();
+     }
+  });
 }
 
 function populateChart(payments) {
 
   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
- 
+
   Morris.Line({
     element: 'morris-area-chart',
     data: [{
@@ -93,5 +119,5 @@ function populateChart(payments) {
       var month = months[new Date(x).getMonth()];
       return month;
     },
-  }); 
+  });
 }
