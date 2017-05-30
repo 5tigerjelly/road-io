@@ -32,7 +32,9 @@ function loadCurrentCart() {
         });
       });
     } else {
-      $('#checkout').addClass('disabled');
+      $('#tableDiv').css('display','none');
+      $('#displayNone').append("<h3>You don't have anything in your cart!</h3>")
+      $('#checkout').css('display','none');
     }
   });
 }

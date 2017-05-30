@@ -24,6 +24,7 @@ function loadDatasets() {
     });
 }
 
+
 function populateTable(result) {
     var tbl = $('#AllDatasets');
     cart.refreshCart(function() {
@@ -93,6 +94,10 @@ $('#cartInsert').click(function() {
         $('#' + item.split('.')[0] + '-cb').html('<i class="glyphicon glyphicon-ok">');
     });
 
+
     currentItems = new Set();
     $('#cartInsert').addClass('disabled');
 });
+
+var check = $("#datasetsTable_filter:first-child");
+console.log(check)
