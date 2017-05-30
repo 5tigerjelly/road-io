@@ -38,10 +38,28 @@
 }
 
 .navbar-default {
-    background-color: #f8f8f8;
-    border-color: #e7e7e7;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+}
+
+.point circle {
+  cursor: pointer;
+  text-align: center;
+  fill: #E2137E;
+  r: 12;
+  stroke: #E2137E;
+  stroke-width: 2px;
+}
+
+.theSVG {
+	margin-bottom: 0.3em;
 }
 
 .dropdownNEW {
 		margin-right: 80px;
+}
+
+.pointIndex {
+	fill: white;
+	font-weight: bold;
 }

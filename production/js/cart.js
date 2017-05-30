@@ -3,6 +3,7 @@ let cart = (function() {
 
     var items = new Set();
     var prices = new Array();
+    var checkoutCart = new Array();
 
     function convertCartFormat(cart) {
         var cartKeys = Object.keys(cart);
@@ -30,6 +31,15 @@ let cart = (function() {
                 callback();
             }
         });
+    }
+
+    function postCheckoutCart(cart) {
+        checkoutCart = cart;
+        console.log(checkoutCart);
+    }
+
+    function getCheckedoutCart() {
+        return checkoutCart;
     }
 
     function getCart() {
@@ -102,6 +112,8 @@ let cart = (function() {
         removeItem: removeItem,
         addItems: addItems,
         processCart: processCart,
+        postCheckoutCart: postCheckoutCart,
+        getCheckedoutCart: getCheckedoutCart,
         getPrices: getPrices
     }
 })()

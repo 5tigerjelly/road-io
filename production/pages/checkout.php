@@ -50,6 +50,7 @@ include_once('head.php'); ?>
                 </div>
                 <!-- /.row -->
                 <?php include('common_dependencies.php'); ?>
+                <script src="../js/session.js"></script>
                 <script src="../js/cart.js"></script>
                 <script src="../js/checkout.js"></script>
     </body>

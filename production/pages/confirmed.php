@@ -2,7 +2,7 @@
 $title = "Road.io &mdash; Purchase Confirmation";
 $css = "confirmed.css";
 include_once('head.php'); ?>
-< <body>
+<body>
 
     <div id="wrapper">
         <?php include('customerNav.php'); ?>
@@ -19,7 +19,7 @@ include_once('head.php'); ?>
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Your Purchased Datasets
+                            Your Order
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -49,6 +49,7 @@ include_once('head.php'); ?>
             </p>
             <!-- /.row -->
             <?php include('common_dependencies.php'); ?>
+            <script src="../js/cart.js"></script>            
             <script src="../js/confirmed.js"></script>
             </body>
 

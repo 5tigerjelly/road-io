@@ -9,14 +9,15 @@ $(function() {
 function loadCheckout() {
     cart.refreshCart(function() {
         let checkoutTable = $('#orderCheckout');
-        var checkoutItems = cart.getCart();
-        if (checkoutItems.size > 0) {
+        var checkoutItems = Array.from(cart.getCart());
+        var prices = cart.getPrices();
+        if (checkoutItems.length > 0) {
             $('#checkout').removeClass('disabled');
-            checkoutItems.forEach(function(checkoutItem) {
-                let row = $('<tr id="row-' + checkoutItem.split('.')[0] + '"></tr>').appendTo(checkoutTable);
-                $('<td>' + checkoutItem + '</td>').appendTo(row);
-                $('<td class="money">' + '$300.99' + '</td>').appendTo(row);
-            });
+            for (var i = 0; i < checkoutItems.length; i++) {
+                let row = $('<tr id="row-' + checkoutItems[i].split('.')[0] + '"></tr>').appendTo(checkoutTable);
+                $('<td>' + checkoutItems[i] + '</td>').appendTo(row);
+                $('<td class="money">$' + prices[i] + '</td>').appendTo(row);
+            }
         }
         calculateGrandTotal();
     });
@@ -42,8 +43,10 @@ var handler = StripeCheckout.configure({
     token: function(token) {
         console.log(token);
         // Call processOrder before page is closed
+        var checkoutCart = Array.from(cart.getCart());
+        cart.postCheckoutCart(checkoutCart);
         cart.processCart();
-        window.location.replace("confirmed.php");
+        //window.location.replace("confirmed.php");
     }
 });
 
