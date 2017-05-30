@@ -1,7 +1,4 @@
 /* layout.css Style */
-#UploadDiv {
-  margin-top: 2em !important;
-}
 
 #spacingNavLinks {
   margin-right: 90px;
@@ -39,4 +36,11 @@
 .upload-drop-zone.drop {
   color: #222;
   border-color: #222;
+}
+
+.dropzone {
+  min-height: 150px;
+  text-align: center;
+  border: dashed grey 3px;
+  border-radius: 5px
 }
