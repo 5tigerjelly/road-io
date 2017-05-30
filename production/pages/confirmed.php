@@ -23,7 +23,7 @@ include_once('head.php'); ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-hover" id="myDatasets">
+                            <table width="100%" class="table table-hover" id="myOrders">
                                 <thead>
                                     <tr>
                                         <th></th>
