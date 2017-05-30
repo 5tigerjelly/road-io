@@ -17,7 +17,7 @@ function loadCurrentCart() {
         let row = $('<tr id="row-' + items[i].split('.')[0] + '"></tr>').appendTo(cartTable);
         $('<td>' + items[i] + '</td>').appendTo(row);
         $('<td>' + prices[i] + '</td>').appendTo(row);
-        $('<td>' + '20017-05-31'+ '</td>').appendTo(row);
+        $('<td>' + '2017-05-31'+ '</td>').appendTo(row);
         $('<td><i class="fa fa-minus-circle remove" id="remove-' + items[i].split('.')[0] + '">').appendTo(row);
       };
 
@@ -25,9 +25,11 @@ function loadCurrentCart() {
         var id = $(this).attr('id').split('-')[1];
         var rowToRemove = $('#row-' + id);
         var item = rowToRemove.children(':first').html();
-        console.log(item);
         rowToRemove.remove();
         cart.removeItem(item);
+        cart.refreshCart(function(){
+
+        });
       });
     } else {
       $('#tableDiv').css('display','none');
