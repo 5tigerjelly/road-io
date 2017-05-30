@@ -43,8 +43,6 @@ var handler = StripeCheckout.configure({
     token: function(token) {
         console.log(token);
         // Call processOrder before page is closed
-        var checkoutCart = Array.from(cart.getCart());
-        cart.postCheckoutCart(checkoutCart);
         cart.processCart();
         window.location.replace("confirmed.php");
     }
