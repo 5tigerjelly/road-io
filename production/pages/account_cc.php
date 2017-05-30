@@ -1,14 +1,16 @@
-<?php 
+<?php
 $title = "Road.io &mdash; Account";
 $css = "customerDashboard.css";
 include_once('head.php'); ?>
-	<body>
-	<?php include('customerNav.php'); ?>	
 
-        <?php include('account.php');?>
+<body>
+    <?php include('customerNav.php'); ?>
 
-        <?php include('common_dependencies.php')?>
-        <script src="../js/account.js" type="text/javascript"></script>
+    <?php include('account.php');?>
 
-	</body>
+    <?php include('common_dependencies.php')?>
+    <script src="../js/account.js" type="text/javascript"></script>
+
+</body>
+
 </html>

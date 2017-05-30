@@ -38,9 +38,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-              <div class="page-header">
-                  <h1>Welcome to Road.IO </h1>
-              </div>
+                <div class="page-header">
+                    <h1>Welcome to Road.IO </h1>
+                </div>
                 <div class="login-panel panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Sign Up</h3>
@@ -49,7 +49,7 @@
                         <form id="signupSubmit" role="form">
                             <fieldset>
                                 <div class="form-group" id="email_form_group">
-                                  <label for="email">Email</label>
+                                    <label for="email">Email</label>
                                     <input class="form-control" placeholder="E-mail" id="email" name="email" type="email" autofocus>
                                     <span id="email_help_text" class="help-block"></span>
                                 </div>
@@ -78,25 +78,25 @@
                                 </div>
 
                                 <div class="form-check">
-                                  <label class="form-check-label">
+                                    <label class="form-check-label">
                                     <input id="check_corporate" type="checkbox" class="form-check-input">
                                     Corporate Account
                                   </label>
                                 </div>
-                                <div id="corporate_account" style="display:none";>
-                                  <hr>
-                                  <div class="form-group">
-                                      <label for="ubi">Unique Business Identifier</label>
-                                      <input class="form-control" type="text" id="ubi" name="ubi">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="businessName">Business Name</label>
-                                      <input class="form-control" type="text" id="businessName" name="businessName">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="naicsCode">NAICS Code</label>
-                                      <input class="form-control" type="text" id="naicsCode" name="naicsCode">
-                                  </div>
+                                <div id="corporate_account" style="display:none" ;>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label for="ubi">Unique Business Identifier</label>
+                                        <input class="form-control" type="text" id="ubi" name="ubi">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="businessName">Business Name</label>
+                                        <input class="form-control" type="text" id="businessName" name="businessName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="naicsCode">NAICS Code</label>
+                                        <input class="form-control" type="text" id="naicsCode" name="naicsCode">
+                                    </div>
                                 </div>
 
                                 <!-- Change this to a button or input when using this as a form -->
@@ -106,9 +106,9 @@
                     </div>
                 </div>
                 <div class="panel">
-                  <div class="checkbox text-center">
-                      Already have an account? <a href="login.php"> Log in Here!</a>
-                  </div>
+                    <div class="checkbox text-center">
+                        Already have an account? <a href="login.php"> Log in Here!</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -41,28 +41,27 @@
 
 <body>
 
-<!-- Modal -->
-<div id="previewVid" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+    <!-- Modal -->
+    <div id="previewVid" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Previewing Videoo</h4>
-      </div>
-      <div class="modal-body">
-        <iframe id="previewFrame" width="420" height="315" frameborder="0" allowfullscreen
-        src="https://www.youtube.com/embed/XGSy3_Czz8k">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Previewing Videoo</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe id="previewFrame" width="420" height="315" frameborder="0" allowfullscreen src="https://www.youtube.com/embed/XGSy3_Czz8k">
         </iframe>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
 
-  </div>
-</div>
+        </div>
+    </div>
 
     <div id="wrapper">
 
@@ -80,7 +79,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                        <p id="spacingNavLinks"><a href="dashboard.html" class="NavLinksActions">Your Dashboard</a></p>
+                    <p id="spacingNavLinks"><a href="dashboard.html" class="NavLinksActions">Your Dashboard</a></p>
                 </li>
                 <li class="dropdown">
                     <p id="spacingNavLinks"><a href="upload.html" class="NavLinksActions">Upload Videos</a></p>
@@ -112,44 +111,44 @@
             </ul>
         </nav>
 
-            <div class="row">
-                
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Manage Videos</h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Manage Videos</h1>
             </div>
-   
-            <div id="vid-container" class="container">
-            </div>
+            <!-- /.col-lg-12 -->
+        </div>
 
-    <!-- /#wrapper -->
+        <div id="vid-container" class="container">
+        </div>
 
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+        <!-- /#wrapper -->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!-- jQuery -->
+        <script src="../vendor/jquery/jquery.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="../js/aws-cognito-sdk.min.js"></script>
-    <script src="../js/amazon-cognito-identity.min.js"></script>
-    <script src="../js/jwt-decode.min.js"></script>
-    <script src="../js/aws-sdk.min.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+        <script src="../js/aws-cognito-sdk.min.js"></script>
+        <script src="../js/amazon-cognito-identity.min.js"></script>
+        <script src="../js/jwt-decode.min.js"></script>
+        <script src="../js/aws-sdk.min.js"></script>
 
 
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
+        <!-- Morris Charts JavaScript -->
+        <script src="../vendor/raphael/raphael.min.js"></script>
+        <script src="../vendor/morrisjs/morris.min.js"></script>
+        <script src="../data/morris-data.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="../dist/js/sb-admin-2.js"></script>
 
-    <!-- script for managing videos -->
-    <script src="../js/manage.js"></script>
+        <!-- script for managing videos -->
+        <script src="../js/manage.js"></script>
 
 </body>
 

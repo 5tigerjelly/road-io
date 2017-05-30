@@ -1,15 +1,15 @@
-<?php 
+<?php
 $title = "Road.io &mdash; Upload Video";
 $css = "upload.css";
 include_once('head.php'); ?>
 
-  <body>
-   <?php include('nav.php'); ?> 
-   <div class="container">
+<body>
+    <?php include('nav.php'); ?>
+    <div class="container">
         <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Payment History</h1>
-                </div>
+            <div class="col-lg-12">
+                <h1 class="page-header">Payment History</h1>
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
@@ -36,14 +36,14 @@ include_once('head.php'); ?>
                     </div>
                     <!-- /.panel-body -->
                 </div>
-            <!-- /.panel -->
+                <!-- /.panel -->
             </div>
-        <!-- /.col-lg-12 -->
+            <!-- /.col-lg-12 -->
         </div>
     </div>
     <?php include("common_dependencies.php"); ?>
     <script src="../js/paymenthistory.js" type="text/javascript"></script>
 
-  </body>
-    
+</body>
+
 </html>

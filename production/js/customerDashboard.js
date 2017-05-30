@@ -24,7 +24,6 @@ function loadDatasets() {
     });
 }
 
-
 function populateTable(result) {
     var tbl = $('#AllDatasets');
     cart.refreshCart(function() {
@@ -56,15 +55,12 @@ $('#datasetsTable').on('click', 'input[type="checkbox"]', function(data) {
     // add
     if (data.currentTarget.checked) {
         currentItems.add(dataValue);
-        //remove
     } else {
         currentItems.delete("" + dataValue);
     }
 
-    // #enabling
     if (currentItems.size > 0) {
         $('#cartInsert').removeClass('disabled');
-        // #disabling
     } else {
         $('#cartInsert').addClass('disabled');
     }
@@ -93,7 +89,6 @@ $('#cartInsert').click(function() {
     items.forEach(function(item) {
         $('#' + item.split('.')[0] + '-cb').html('<i class="glyphicon glyphicon-ok">');
     });
-
 
     currentItems = new Set();
     $('#cartInsert').addClass('disabled');

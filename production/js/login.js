@@ -11,16 +11,12 @@ window.onload = function() {
             $("#submit_login").click(function() {
                 login();
             });
-            $("#loginSubmit").submit(function(event){
-              event.preventDefault();
-              login();
+            $("#loginSubmit").submit(function(event) {
+                event.preventDefault();
+                login();
             });
         }
     });
-};
-
-function test() {
-    console.log(document.getElementById("email").value);
 };
 
 function login() {
