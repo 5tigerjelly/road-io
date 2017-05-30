@@ -46,7 +46,7 @@ var handler = StripeCheckout.configure({
         var checkoutCart = Array.from(cart.getCart());
         cart.postCheckoutCart(checkoutCart);
         cart.processCart();
-        //window.location.replace("confirmed.php");
+        window.location.replace("confirmed.php");
     }
 });
 
