@@ -5,6 +5,12 @@ include_once('head.php'); ?>
   <body>
    <?php include('nav.php'); ?> 
    <div id=UploadDiv class="container">
+
+    <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Upload Videos</h1>
+            </div>
+    </div>
         <div class="panel panel-default">
           <div class="panel-heading"><strong>Upload Files</strong></div>
           <div class="panel-body">
@@ -14,21 +20,27 @@ include_once('head.php'); ?>
                 <span class="sr-only">60% Complete</span>
               </div>
             </div> -->
-            <!-- Standar Form -->
-            <h4>Select files from your computer</h4>
-              <div class="form-inline">
-                <div class="form-group">
-                  <input type="file" name="files[]" id="js-upload-files" multiple>
+            <!-- Standard Form -->
+            <div id="uploadArea">
+              <h4>Select files from your computer</h4>
+                <div class="form-inline">
+                  <div class="form-group">
+                    <input type="file" name="files[]" id="js-upload-files" multiple>
+                  </div>
+                  <button id="uploadDatShit" class="btn btn-sm btn-primary">upload files</button>
                 </div>
-                <button id="uploadDatShit" class="btn btn-sm btn-primary">upload files</button>
-              </div>
-            <!-- Drop Zone -->
-            <!-- <h4>Or drag and drop files below</h4>
-            <div class="upload-drop-zone" id="drop-zone">
-              Just drag and drop files here
-            </div> -->
+                <!-- <div class="form-inline">
+                  <div class="from-group">
+                    <form action="/" class="dropzone" id="dropzoneArea"></form>
+                  </div>
+                </div> -->
+              </div>              
           </div>
         </div>
+
+        <!-- Currently uploading videos -->
+        <h3 id="progressTitle" style="display:none">Current Uploads</h3>
+        <div id="progressArea"></div>
       </div> <!-- /container -->
   <?php include('common_dependencies.php'); ?>
   <script src="../js/upload.js" type="text/javascript"></script>
