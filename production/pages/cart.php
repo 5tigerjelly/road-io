@@ -1,4 +1,4 @@
-<?php 
+<?php
 $title = "Road.io &mdash; Cart";
 $css = "cart.css";
 include_once('head.php'); ?>
@@ -9,12 +9,12 @@ include_once('head.php'); ?>
         <?php include('customerNav.php'); ?>
         <div class="container">
             <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" id="displayNone">
                         <h1 class="page-header">Your Cart</h1>
                     </div>
             </div>
             <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" id="tableDiv">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <table width="100%" class="table table-striped table-hover" id="cart-table">
