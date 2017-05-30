@@ -19,7 +19,21 @@
                         <p id="spacingNavLinks"><a href="purchasedDatasets.php" class="NavLinksActions">Purchased Datasets</a></p>
                 </li>
                 <li class="dropdown">
-                    <a href="cart.php" class="NavLinksActions"><i class="fa fa-shopping-cart" aria-hidden="true" id="cart"></i></a>
+                    <a href="cart.php" class="NavLinksActions">
+                      <i class="fa fa-shopping-cart" aria-hidden="true" id="cart">
+                      </i>
+                      <svg id ="cartCount" class="theSVG" width="27" height="27">
+                        <g class="point" transform="translate(13,13)">
+                          <circle></circle>
+                          <text class="pointIndex" y="5">
+                            <tspan id="cartCountText" text-anchor="middle">
+                              0
+                            </tspan>
+                          </text>
+                        </g>
+                      </svg>
+                    </a>
+
                 </li>
                 <li class="dropdown">
                 </li>
