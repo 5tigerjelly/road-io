@@ -30,7 +30,6 @@ var session = (function(){
               alert(err);
               return;
           }
-          console.log(result)
           sub = result[0].getValue();
           type = result[1].getValue() == 'driver' ? DRIVER : CAR_COMPANY;
           phone = result[3].getValue();
