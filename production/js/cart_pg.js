@@ -9,7 +9,6 @@ function loadCurrentCart() {
         let cartTable = $('#cart-table');
         items = Array.from(cart.getCart());
         prices = cart.getPrices();
-        console.log(items)
         if (items.length > 0) {
             $('#checkout').removeClass('disabled');
             for (var i = 0; i < items.length; i++) {

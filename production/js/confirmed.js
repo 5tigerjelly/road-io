@@ -7,6 +7,26 @@ $(function() {
 function loadOrders() {
     var checkedOutCart = cart.getCheckedoutCart();
     console.log(checkedOutCart);
+
+    // datasetObjects.forEach(function(element) {
+    //             var datasetName = element["Key"];
+
+    //             var row = $("<tr></tr>");
+    //             var tableID = $("<td></td>").text(counter);
+    //             var aTag = $("<a></a>").text(datasetName);
+    //             aTag.attr("href", "https://s3-us-west-2.amazonaws.com/roadio-datasets/" + datasetName);
+    //             var zip = $("<td></td>").html(aTag);
+
+    //             var checkbox = $("<input class='checkbox_check' type='checkbox' name='added' value=" + datasetName + ">")
+    //             var checkboxData = $("<td align='center'></td>").html(checkbox);
+    //             row.append(checkboxData, zip);
+    //             $('#myDatasets').append(row);
+    //             counter += 1;
+
+
+    //         });
+
+    //         $("#dataTables-example").DataTable();
     // cart.refreshCart(function() {
     //     let cartTable = $('#cart-table');
     //     items = Array.from(cart.getCart());
