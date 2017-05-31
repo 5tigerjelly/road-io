@@ -42,10 +42,7 @@ include_once('head.php'); ?>
                 <!-- /.col-lg-12 -->
             </div>
             <p>
-                <button id="checkout" type="submit" class="btn btn-success btn-lg btn-block">Download As...</button>
-            </p>
-            <p>
-                <button id="checkout" type="submit" class="btn btn-primary btn-lg btn-block">Download Later</button>
+                <button id="confirmedButton" type="submit" class="btn btn-primary btn-lg btn-block">Download Later</button>
             </p>
             <!-- /.row -->
             <?php include('common_dependencies.php'); ?>

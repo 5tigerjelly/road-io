@@ -17,7 +17,7 @@ include_once('head.php'); ?>
                     <div class="col-lg-12" id="tableDiv">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Your Purchased Datasets
+                                Purchase History
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">

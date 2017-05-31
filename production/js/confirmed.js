@@ -33,3 +33,7 @@ function loadOrders() {
         }
     });
 }
+
+$('#confirmedButton').click(function() {
+    window.location.replace("customerDashboard.php");
+});
