@@ -276,12 +276,12 @@ var signup = (function() {
                                             success: function(res) {
                                                 console.log(res);
                                                 if (attr[1].getValue() == DRIVER) {
-                                                    //window.location.replace("dashboard.html")
+                                                    window.location.replace("dashboard.html")
                                                     var decoded = jwt_decode(result.getAccessToken().getJwtToken());
                                                     console.log(decoded);
                                                     console.log('access token + ' + result.getAccessToken().getJwtToken());
                                                 } else {
-                                                    // window.location.replace("customerDashboard.html")
+                                                     window.location.replace("customerDashboard.html")
                                                 }
                                             }
                                         });
