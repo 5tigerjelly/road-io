@@ -6,6 +6,9 @@
 
 <p>Our platform addresses these challenges by providing rich, hyper-localized metadata and images. Potentially, this may even turn in to a revenue system where companies can post listings on our site asking uploaders to provide footage of a specific area for a premium. </p>
 
+
+<h3>Table of Contents</h3>
+
 <h3>Summary of the Major Technology Decisions</h3>
 
 <h3>Technology Stack and Rationale</h3>
