@@ -16,3 +16,4 @@
 
 <h3>Contact Us</h3>
 <p>Arvindram - Email: karvi90@gmail.com, LinkedIn: https://www.linkedin.com/in/arvindramkrishnamoorthy/ </p>
+<p>Tanner Garrett - Email: tanner@garrett.org <p>
