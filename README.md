@@ -18,8 +18,8 @@ To prepare for Capstone, two members became AWS Certified as Solutions Architect
 ### Contact Us
 Arvindram : [Email](mailto:karvi90@gmail.com), [LinkedIn](https://www.linkedin.com/in/arvindramkrishnamoorthy)
 
-Tanner Garrett : [Email](mailto:tanner@garrett.org) 
+Tanner Garrett : [Email](mailto:tanner@garrett.org)
 
-Bum Mook Oh : [Email](mailto:bmo5@uw.edu)
+Bum Mook Oh : [Email](mailto:bmo5@uw.edu), [LinkedIn](https://www.linkedin.com/in/bummookoh/)
 
-Josh Hall : [Email](mailto:jhall38@uw.edu)
+Josh Hall : [Email](mailto:jhall38@uw.edu), [LinkedIn](https://www.linkedin.com/in/jhall38/)
