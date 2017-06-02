@@ -16,7 +16,7 @@ Our platform addresses these challenges by providing rich, hyper-localized metad
 To prepare for Capstone, two members became AWS Certified as Solutions Architects at the associate level. We understood the benefits of Serverless and how we would be able to leverage the powerful product offerings while minimizing cost. We chose AWS Cognito to store user credentials, DynamoDB for fast querying of unstructured data and EC2 in tandem with SQS to execute Computer Vision Jobs. The libary we used for this was DLib's Simple Object Detector. For the front-end, we employed the usual suspects: HTML5, CSS3, and Javascript because of their reliable frameworks and support.
 
 ### Contact Us
-Arvindram - [Email](mailto:karvi90@gmail.com), [LinkedIn](https://www.linkedin.com/in/arvindramkrishnamoorthy)
+Arvindram : [Email](mailto:karvi90@gmail.com), [LinkedIn](https://www.linkedin.com/in/arvindramkrishnamoorthy)
 
 Tanner Garrett : [Email](mailto:tanner@garrett.org) 
 
