@@ -17,4 +17,5 @@ To prepare for Capstone, two members became AWS Certified as Solutions Architect
 
 ### Contact Us
 Arvindram - Email: karvi90@gmail.com, [LinkedIn](https://www.linkedin.com/in/arvindramkrishnamoorthy)
+
 Tanner Garrett - Email: tanner@garrett.org 
