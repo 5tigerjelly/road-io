@@ -28,4 +28,4 @@ Josh Hall : [Email](mailto:jhall38@uw.edu), [LinkedIn](https://www.linkedin.com/
 
 
 
-[poster]: https://ischool.uw.edu/sites/default/files/capstone/posters/poster_final_0.pdf "Road.IO Poster"
+[poster]: roadio_capstone_poster.png "Road.IO Poster"
