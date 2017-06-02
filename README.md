@@ -21,3 +21,5 @@ Arvindram - [Email](mailto:karvi90@gmail.com), [LinkedIn](https://www.linkedin.c
 Tanner Garrett : [Email](mailto:tanner@garrett.org) 
 
 Bum Mook Oh : [Email](mailto:bmo5@uw.edu)
+
+Josh Hall : [Email](mailto:jhall38@uw.edu)
