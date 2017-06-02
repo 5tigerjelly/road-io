@@ -1,6 +1,8 @@
 # Road.IO
 
 ### Overview
+![alt text][poster]
+
 Road.IO is a platform that crowdsources dashcam footage that is then processed and packaged into datasets of images and metadata to be sold to Autonomous Car Companies.
     
 Around 400 companies are working to bring their autonomous cars to market right now. However, self-driving cars require huge training datasets of tagged traffic images in a variety of conditions to be properly trained. Despite the high costs of gathering this data, existing and emerging companies are forced to collect the same kinds of information over and over again to protect their competitive advantage. We chose this model  so that our customers have greater flexibility when they train their models and to prevent over fitting. When drivers upload their footage, they help make a worldwide socio-technical impact, and are even paid for their submissions. Currently, we only recognize stop signs.
@@ -23,3 +25,7 @@ Tanner Garrett : [Email](mailto:tanner@garrett.org)
 Bum Mook Oh : [Email](mailto:bmo5@uw.edu), [LinkedIn](https://www.linkedin.com/in/bummookoh/)
 
 Josh Hall : [Email](mailto:jhall38@uw.edu), [LinkedIn](https://www.linkedin.com/in/jhall38/)
+
+
+
+[poster]: https://ischool.uw.edu/sites/default/files/capstone/posters/poster_final_0.pdf "Road.IO Poster"
