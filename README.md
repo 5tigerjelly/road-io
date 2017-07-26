@@ -3,6 +3,9 @@
 ### Poster
 ![alt text][poster]
 
+### Video
+[![Alt text](http://img.youtube.com/vi/NaoVEvO2dng/0.jpg)](https://youtu.be/c97qgZoeHdA)
+
 ### Analysis Repo
 https://github.com/jhall38/rioanalysis/
 
